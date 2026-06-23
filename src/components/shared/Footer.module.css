@@ -1,0 +1,125 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #00000033;
+}
+.featuresRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1188px;
+  width: 100%;
+  padding: 20px 24px;
+  border-bottom: 1px solid #00000033;
+}
+.featureItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 5px;
+  align-items: center;
+  max-width: 331.48px;
+}
+.featureItem img {
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+.featureItem h4 {
+  font-family: "Vazirmatn-SemiBold";
+  font-size: 26px;
+  font-weight: 500;
+  color: #282828;
+  text-align: right;
+  margin: 0 0 6px 0;
+}
+
+.featureItem p {
+  font-family: "Vazirmatn-Light";
+  margin: 0;
+  font-size: 16px;
+  font-weight: 300;
+  color: #282828;
+  text-align: right;
+  line-height: 1.6;
+  max-width: 200px;
+}
+.mainRowWrapper {
+  width: 100%;
+  border-bottom: 1px solid #00000033;
+  padding: 20px 0;
+}
+.mainRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1188px;
+  width: 100%;
+  margin: 0 auto;
+}
+.linksGroup {
+  display: flex;
+  gap: 120px;
+}
+.linksColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.linksColumn h4 {
+  font-family: "YekanBakhBold";
+  font-size: 24px;
+  font-weight: 600;
+  color: #282828;
+}
+
+.linksColumn a {
+  color: #282828;
+  font-family: "YekanBakhMedium";
+  font-size: 18px;
+  font-weight: 400;
+}
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+.supportPhone {
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.supportPhone span:first-child {
+  font-family: "YekanBakhMedium";
+  font-size: 15px;
+  width: 95px;
+  height: 23px;
+  line-height: 23px;
+  text-align: right;
+}
+
+.phoneNumber {
+  font-family: "YekanBakhMedium";
+  font-size: 15px;
+  width: 66px;
+  height: 23px;
+  line-height: 23px;
+  text-align: right;
+}
+
+.trustBadges {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.copyright {
+  font-family: "YekanBakhMedium";
+  font-size: 15px;
+  color: #000000;
+  padding: 15px 0;
+  text-align: center;
+  width: 100%;
+}
