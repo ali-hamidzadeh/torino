@@ -1,0 +1,165 @@
+.overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  position: relative;
+  height: 362px;
+  width: 561px;
+  border: none;
+  background-color: #ffffff;
+  align-items: center;
+  border-radius: 20px;
+}
+.closeButton {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #282828;
+}
+.title {
+  margin: 60px 0 15px 0;
+  font-family: "YekanBakhMedium";
+  font-size: 28px;
+  font-weight: 600;
+  color: #282828;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 491px;
+  width: 100%;
+}
+.label {
+  font-family: "YekanBakhMedium";
+  font-size: 16px;
+  font-weight: 300;
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+.input {
+  height: 54px;
+  padding: 8px;
+  margin-bottom: 34px;
+  border: 1px solid #00000040;
+  border-radius: 6px;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+}
+.input::placeholder {
+  font-family: "Vazirmatn-Light";
+  font-weight: 300;
+  font-size: 15px;
+  color: #00000080;
+}
+.error {
+  color: #dc3545;
+  font-size: 13px;
+  text-align: right;
+  margin-top: -25px;
+  margin-bottom: 8px;
+  font-family: "Vazirmatn-Light";
+}
+.submitButton {
+  height: 54px;
+  border: 1px solid #00000040;
+  border-radius: 6px;
+  background-color: #28a745;
+  outline: none;
+  font-family: "Vazirmatn-Medium";
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.backArrow {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #282828;
+}
+.otpLabel {
+  font-family: "YekanBakhMedium";
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  color: #282828;
+  margin-bottom: 10px;
+}
+
+.otpSlots {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  direction: ltr;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.otpSlot {
+  width: 48px;
+  height: 54px;
+  border: 1px solid #00000040;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: text;
+}
+.otpSlotActive {
+  border-color: #28a745;
+  border-width: 2px;
+}
+.timerBox {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.timer {
+  font-family: "YekanBakhMedium";
+  font-size: 16px;
+  font-weight: 300;
+  font-size: 14px;
+  color: #28a745;
+  font-weight: 300;
+}
+
+.resendButton {
+  background: none;
+  border: none;
+  color: #a73528;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: "YekanBakhMedium";
+}

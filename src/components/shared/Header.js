@@ -1,11 +1,15 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { FaUser } from "react-icons/fa";
+import { useAuthStore } from "@/store/authStore";
 
 import styles from "./Header.module.css";
 import image from "@public/Torino (4) 1.png";
 
 function Header() {
+  const { isLoggedIn, user, openLoginModal } = useAuthStore();
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -20,10 +24,16 @@ function Header() {
         </div>
 
         <div>
-          <button className={styles.header_btn}>
-            <FaUser />
-            <span>ورود | ثبت نام</span>
-          </button>
+          {isLoggedIn ? (
+            <Link href="/profile" className={styles.userButton}>
+              {user?.firstName || user?.mobile || "حساب کاربری"}
+            </Link>
+          ) : (
+            <button className={styles.header_btn} onClick={openLoginModal}>
+              <FaUser />
+              <span>ورود | ثبت نام</span>
+            </button>
+          )}
         </div>
       </div>
     </header>
