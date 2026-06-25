@@ -1,5 +1,4 @@
 import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import LoginModal from "@/components/ui/loginModal";
 import { Toaster } from "sonner";
 import AuthProvider from "@/components/shared/AuthProvider";
@@ -18,7 +17,6 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <Header />
           {children}
-          <Footer />
           <LoginModal />
           <Toaster position="top-center" richColors />
         </AuthProvider>
