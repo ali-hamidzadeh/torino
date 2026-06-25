@@ -1,8 +1,10 @@
-import "./globals.css";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import LoginModal from "@/components/ui/loginModal";
 import { Toaster } from "sonner";
+import AuthProvider from "@/components/shared/AuthProvider";
+
+import "./globals.css";
 
 export const metadata = {
   title: "تورینو | جستجو و رزرو تور",
@@ -13,11 +15,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body>
-        <Header />
-        {children}
-        <Footer />
-        <LoginModal />
-        <Toaster position="top-center" richColors />
+        <AuthProvider>
+          <Header />
+          {children}
+          <Footer />
+          <LoginModal />
+          <Toaster position="top-center" richColors />
+        </AuthProvider>
       </body>
     </html>
   );

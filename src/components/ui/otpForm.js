@@ -24,9 +24,9 @@ export default function OtpForm({ mobile, onBack }) {
   }, [timer]);
 
   const formatTime = (seconds) => {
-    const m = Math.floor(seconds / 60);
-    const s = seconds % 60;
-    return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+    const min = Math.floor(seconds / 60);
+    const second = seconds % 60;
+    return `${String(min).padStart(2, "0")}:${String(second).padStart(2, "0")}`;
   };
 
   const handleResend = async () => {
@@ -48,6 +48,16 @@ export default function OtpForm({ mobile, onBack }) {
     setIsLoading(true);
     try {
       const data = await checkOtp(mobile, otp);
+
+      await fetch("/api/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          accessToken: data.accessToken,
+          refreshToken: data.refreshToken,
+        }),
+      });
+
       login(data.user, data.accessToken, data.refreshToken);
       toast.success("خوش آمدید!");
     } catch (error) {

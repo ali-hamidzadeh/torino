@@ -19,10 +19,12 @@ export const useAuthStore = create((set) => ({
       showLoginModal: false,
     }),
 
-  logout: () =>
+  logout: async () => {
+    await fetch("/api/auth", { method: "DELETE" });
     set({
       user: null,
       accessToken: null,
       isLoggedIn: false,
-    }),
+    });
+  },
 }));
