@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useAuthStore } from "@/store/authStore";
-import axios from "axios";
+import axiosInstance from "@/lib/axiosInstance";
 
 export default function AuthProvider({ children }) {
   const { login, logout } = useAuthStore();
@@ -13,16 +13,8 @@ export default function AuthProvider({ children }) {
         const authRes = await fetch("/api/auth");
         if (!authRes.ok) return;
 
-        const { accessToken } = await authRes.json();
-
-        const userRes = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/user/profile`,
-          {
-            headers: { Authorization: `Bearer ${accessToken}` },
-          },
-        );
-
-        login(userRes.data, accessToken);
+        const userResponse = await axiosInstance.get("/user/profile");
+        login(userResponse.data, null);
       } catch {
         logout();
       }
