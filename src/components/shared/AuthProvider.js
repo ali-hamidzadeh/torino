@@ -11,11 +11,12 @@ export default function AuthProvider({ children }) {
     const restoreUser = async () => {
       try {
         const authRes = await fetch("/api/auth");
+
         if (!authRes.ok) return;
 
-        const userResponse = await axiosInstance.get("/user/profile");
-        login(userResponse.data, null);
-      } catch {
+        const userRes = await axiosInstance.get("/user/profile");
+        login(userRes.data, null);
+      } catch (err) {
         logout();
       }
     };

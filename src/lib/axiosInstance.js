@@ -21,26 +21,32 @@ axiosInstance.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    if (
+      (error.response?.status === 401 || error.response?.status === 403) &&
+      !originalRequest._retry
+    ) {
       originalRequest._retry = true;
 
       try {
-        const refreshResponse = await fetch("/api/auth/refresh");
+        const refreshRes = await fetch("/api/auth/refresh");
 
-        if (!refreshResponse.ok) {
+        if (!refreshRes.ok) {
           await fetch("/api/auth", { method: "DELETE" });
           window.location.href = "/";
           return Promise.reject(error);
         }
-        const { newAccessToken } = await refreshResponse.json();
-        originalRequest.headers.Authorization = `Bearer${newAccessToken}`;
+
+        const { newAccessToken } = await refreshRes.json();
+
+        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
         return axiosInstance(originalRequest);
-      } catch {
+      } catch (err) {
         await fetch("/api/auth", { method: "DELETE" });
         window.location.href = "/";
         return Promise.reject(error);
       }
     }
+
     return Promise.reject(error);
   },
 );
