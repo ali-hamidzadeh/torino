@@ -1,5 +1,4 @@
 export default function Home() {
-  throw new Error("test error");
   return (
     <main>
       <h1>صفحه اصلی تورینو</h1>

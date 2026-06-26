@@ -37,7 +37,7 @@
   font-size: 1rem;
   color: #282828;
 }
-.header_btn {
+.header_button {
   width: 166px;
   height: 44px;
   background-color: #ffffff;
@@ -49,12 +49,12 @@
   justify-content: center;
   cursor: pointer;
 }
-.header_btn svg {
+.header_button svg {
   width: 16px;
   height: 16px;
   display: block;
 }
-.header_btn span {
+.header_button span {
   display: inline-block;
   font-family: "Vazirmatn-SemiBold";
   font-size: 18px;
@@ -63,4 +63,108 @@
   width: 108px;
   line-height: 28px;
   height: 28px;
+}
+.userBox {
+  position: relative;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #28a745;
+  font-family: "Vazirmatn-Medium";
+  font-weight: 500;
+  font-size: 18px;
+}
+.userIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #28a745;
+}
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 246px;
+  background-color: #ffffff;
+  border-radius: 11px;
+  z-index: 999;
+  overflow: hidden;
+  padding: 12px;
+}
+.dropdownHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  font-family: "Vazirmatn-Medium";
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #f4f4f4;
+  color: #10411b;
+  padding: 10px 0;
+}
+.userIcon1 {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #696969;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 10px 0;
+  font-family: "YekanBakhMedium";
+  font-weight: 400;
+  font-size: 14px;
+  color: #282828;
+  border-bottom: 1px solid #0000001f;
+}
+.userIcon2 {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropdownLogout {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 10px 0;
+  font-family: "YekanBakhMedium";
+  font-weight: 400;
+  font-size: 14px;
+  color: #d40000;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.userIcon3 {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
