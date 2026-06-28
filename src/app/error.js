@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import FooterSimple from "@/components/shared/FooterSimple";
 import styles from "./error.module.css";

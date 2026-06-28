@@ -67,10 +67,12 @@ export default function FooterFull() {
             </div>
           </div>
           <div className={styles.brandColumn}>
-            <Image src={image} alt="torino logo" width={146} height={44} />
-            <div className={styles.supportPhone}>
-              <span>تلفن پشتیبانی:</span>
-              <span className={styles.phoneNumber}>۰۲۱-۸۵۷۴</span>
+            <div className={styles.brandInfo}>
+              <Image src={image} alt="torino logo" width={146} height={44} />
+              <div className={styles.supportPhone}>
+                <span>تلفن پشتیبانی:</span>
+                <span className={styles.phoneNumber}>۰۲۱-۸۵۷۴</span>
+              </div>
             </div>
             <div className={styles.trustBadges}>
               <Image src={airline} alt="نماد اعتماد ۴" width={68} height={74} />
