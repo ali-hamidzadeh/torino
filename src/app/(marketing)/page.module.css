@@ -1,0 +1,36 @@
+.main {
+  width: 100%;
+}
+
+.banner {
+  width: 100%;
+}
+
+.container {
+  max-width: 1188px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.tourSection {
+  margin: 40px 0;
+  
+}
+
+.tourSection h2 {
+  text-align: right;
+  width: 100%;
+  font-family: "YekanBakhMedium";
+  font-weight: 400;
+  font-size: 32px;
+  color: #000000;
+  padding-bottom: 10px;
+}
+
+.tourGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 29px;
+  justify-content: center;
+  margin-bottom: 40px;
+}

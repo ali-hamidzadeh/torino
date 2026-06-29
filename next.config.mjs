@@ -1,7 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "6500",
+        pathname: "/static/images/**",
+      },
+    ],
+    dangerouslyAllowSVG: true,
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
