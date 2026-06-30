@@ -33,15 +33,9 @@ export const getHotel = (options) => {
   if (!hotel) return null;
 
   const numberMap = {
-    یک: "1",
-    دو: "2",
     سه: "3",
     چهار: "4",
     پنج: "5",
-    شش: "6",
-    هفت: "7",
-    هشت: "8",
-    نه: "9",
   };
 
   const star = Object.entries(numberMap).find(([word]) => hotel.includes(word));

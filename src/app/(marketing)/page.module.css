@@ -5,6 +5,12 @@
 .banner {
   width: 100%;
 }
+.bannerImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
 
 .container {
   max-width: 1188px;
@@ -14,11 +20,9 @@
 
 .tourSection {
   margin: 40px 0;
-  
 }
 
 .tourSection h2 {
-  text-align: right;
   width: 100%;
   font-family: "YekanBakhMedium";
   font-weight: 400;
@@ -33,4 +37,19 @@
   gap: 29px;
   justify-content: center;
   margin-bottom: 40px;
+}
+.searchSection {
+  font-family: "YekanBakhBold";
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.brand {
+  color: #28a745;
 }

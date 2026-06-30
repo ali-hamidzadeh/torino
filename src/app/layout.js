@@ -1,7 +1,8 @@
 import Header from "@/components/shared/Header";
 import LoginModal from "@/components/ui/loginModal";
-import { Toaster } from "sonner";
 import AuthProvider from "@/components/shared/AuthProvider";
+import QueryProvider from "@/components/shared/QueryProvider";
+import { Toaster } from "sonner";
 
 import "./globals.css";
 
@@ -14,12 +15,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body>
-        <AuthProvider>
-          <Header />
-          {children}
-          <LoginModal />
-          <Toaster position="top-center" richColors />
-        </AuthProvider>
+        <QueryProvider>
+          <AuthProvider>
+            <Header />
+            {children}
+            <LoginModal />
+            <Toaster position="top-center" richColors />
+          </AuthProvider>
+        </QueryProvider>
       </body>
     </html>
   );

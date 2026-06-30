@@ -14,7 +14,6 @@
     "axios": "^1.18.0",
     "clsx": "^2.1.1",
     "input-otp": "^1.4.2",
-    "jalaali-js": "^1.2.8",
     "jose": "^6.2.3",
     "lucide-react": "^1.21.0",
     "next": "16.2.9",
@@ -25,6 +24,7 @@
     "react-multi-date-picker": "^4.5.2",
     "sonner": "^2.0.7",
     "yup": "^1.7.1",
+    "zaman": "^2.1.1",
     "zustand": "^5.0.14"
   },
   "devDependencies": {

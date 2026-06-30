@@ -1,6 +1,10 @@
 import { getTours } from "@/services/tourService";
-import styles from "./page.module.css";
 import TourCard from "@/components/shared/TourCard";
+import SearchForm from "@/components/shared/SearchForm";
+import Image from "next/image";
+
+import styles from "./page.module.css";
+import banner from "@public/banner.png";
 
 export const revalidate = 300;
 
@@ -14,9 +18,23 @@ export default async function Home() {
   }
   return (
     <main className={styles.main}>
-      <section className={styles.banner}>Banner</section>
+      <section className={styles.banner}>
+        <Image
+          src={banner}
+          alt="banner"
+          width={1440}
+          height={350}
+          className={styles.bannerImage}
+        />
+      </section>
       <div className={styles.container}>
-        <section className={styles.searchSection}>Searchbox</section>
+        <section className={styles.searchSection}>
+          <p>
+            <span className={styles.brand}>تورینو</span> برگزار کننده بهترین تور
+            های داخلی و خارجی
+          </p>
+          <SearchForm />
+        </section>
 
         <section className={styles.tourSection}>
           <h2>همه تور‌ها</h2>
