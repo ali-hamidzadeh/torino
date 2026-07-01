@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  margin: 80px 0;
+  border: 1px solid #00000040;
+}
+
+.rightBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #28a745;
+  flex: 2;
+  padding: 24px 32px 0 32px;
+  color: #ffffff;
+  border-radius: 10px;
+}
+.rightBox img {
+  display: block;
+}
+
+.textBox {
+  align-items: flex-start;
+  margin-top: 8px;
+}
+.textBox h2 {
+  font-family: "YekanBakhHeavy";
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  color: #ffffff;
+}
+
+.brand {
+  color: #10411b;
+}
+.textBox p {
+  font-family: "YekanBakhMedium";
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  color: #ffffff;
+}
+
+.leftBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex: 1;
+  background-color: #ffffff;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+}
+.phone span {
+  font-family: "Vazirmatn-Bold";
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+}
+.phone img {
+  width: 24px;
+  height: 24px;
+}
+
+.detailsBtn {
+  width: 175px;
+  height: 41px;
+  align-items: center;
+  text-align: center;
+  background-color: #10411b;
+  color: #ffffff;
+  border: none;
+  border-radius: 9px;
+  padding: 8px 24px;
+  cursor: pointer;
+  font-family: "Vazirmatn-Medium";
+  font-weight: 500;
+  font-size: 16px;
+}

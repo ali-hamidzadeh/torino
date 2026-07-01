@@ -5,6 +5,8 @@ import Image from "next/image";
 
 import styles from "./page.module.css";
 import banner from "@public/banner.png";
+import CallBanner from "@/components/shared/callBanner";
+import WhyUs from "@/components/shared/WhyUs";
 
 export const revalidate = 300;
 
@@ -43,6 +45,12 @@ export default async function Home() {
               <TourCard key={tour.id} tour={tour} />
             ))}
           </div>
+        </section>
+        <section className={styles.callSection}>
+          <CallBanner />
+        </section>
+        <section className={styles.whyUs}>
+          <WhyUs />
         </section>
       </div>
     </main>
