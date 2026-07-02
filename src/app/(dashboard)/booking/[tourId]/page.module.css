@@ -1,0 +1,233 @@
+.pageWrapper {
+  background-color: #f3f3f3;
+  min-height: 80vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  direction: rtl;
+}
+
+.mainCard {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  height: 228px;
+}
+
+.formSection {
+  flex: 3;
+  padding: 32px;
+  border: 1px solid #00000033;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.asideSection {
+  flex: 1;
+  padding: 32px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  font-family: "Vazirmatn-Regular";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  color: #2d2d2d;
+  font-weight: bold;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.input {
+  color: #00000080;
+  font-family: "Vazirmatn-Regular";
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.form .field:last-child {
+  grid-column: 1/ 2;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #4a4a4a;
+  outline: none;
+  background-color: #fff;
+  color: #00000080;
+  font-family: "Vazirmatn-Regular";
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.inputIcon {
+  position: absolute;
+  right: 14px;
+  color: #a0a0a0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dateInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.dateInputWrapper .input {
+  padding-right: 40px !important;
+}
+
+.error {
+  color: #e53e3e;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.tourHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tourTitle {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "YekanBakhBold";
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+}
+
+.tourDuration {
+  font-size: 13px;
+  color: #a0a0a0;
+  font-family: "Vazirmatn-Regular";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  padding-top: 24px;
+  background-image: linear-gradient(to right, #00000080 50%, transparent 50%);
+  background-size: 16px 1px;
+  background-repeat: repeat-x;
+  background-position: top;
+  padding-bottom: 10px;
+}
+.priceLabel {
+  font-size: 14px;
+  color: #282828;
+  font-family: "Vazirmatn-Regular";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+}
+
+.price {
+  font-family: "Vazirmatn-Medium";
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  color: #10b3e0;
+}
+
+.priceUnit {
+  font-family: "Vazirmatn-Medium";
+  font-weight: 400;
+  font-size: 14px;
+  margin-right: 5px;
+  color: #000000;
+}
+
+.submitBtn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  font-family: "Vazirmatn-Medium";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  align-items: center;
+
+}
+
+.submitBtn:disabled {
+  background-color: #a8d5b2;
+  cursor: not-allowed;
+}
+
+@media (max-width: 992px) {
+  .mainCard {
+    flex-direction: column;
+  }
+  .asideSection {
+    border-right: none;
+    border-top: 1px solid #f0f0f0; 
+    padding-top: 24px;
+  }
+  .form {
+    grid-template-columns: 1fr;
+  }
+  .form .field:last-child {
+    grid-column: auto;
+  }
+}
