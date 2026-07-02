@@ -1,0 +1,65 @@
+.detailsFooter {
+  display: flex;
+  align-items: stretch;
+  min-height: 84px;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.detailColumn {
+  flex: 1;
+  display: grid;
+  justify-content: center;
+  justify-items: start;
+  align-content: center;
+  border-left: 1px solid #00000040;
+  gap: 15px;
+}
+
+.detailColumn:first-child {
+  justify-content: start;
+  padding-right: 0;
+}
+
+.detailColumn:last-child {
+  border-left: none;
+  justify-content: center;
+  padding-left: 0;
+}
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.detailLabel {
+  display: flex;
+  align-items: center;
+  color: #444444;
+  font-family: "Vazirmatn-Regular";
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.detailValue {
+  font-family: "Vazirmatn-Medium";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .detailsFooter {
+    flex-wrap: wrap;
+    gap: 1.5rem 0;
+  }
+
+  .detailColumn {
+    flex: 0 0 33.33%;
+    border-left: none;
+  }
+}

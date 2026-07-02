@@ -1,12 +1,12 @@
 import { getTours } from "@/services/tourService";
-import TourCard from "@/components/shared/TourCard";
-import SearchForm from "@/components/shared/SearchForm";
+import TourCard from "@/components/shared/MainPage/TourCard";
+import SearchForm from "@/components/shared/MainPage/SearchForm";
 import Image from "next/image";
 
 import styles from "./page.module.css";
 import banner from "@public/banner.png";
-import CallBanner from "@/components/shared/callBanner";
-import WhyUs from "@/components/shared/WhyUs";
+import CallBanner from "@/components/shared/MainPage/callBanner";
+import WhyUs from "@/components/shared/MainPage/WhyUs";
 
 export const revalidate = 300;
 

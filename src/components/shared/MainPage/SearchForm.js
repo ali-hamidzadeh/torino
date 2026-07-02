@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getTourClient } from "@/services/tourService";
+import { getToursClient } from "@/services/tourService";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { DatePicker } from "zaman";
@@ -28,7 +28,7 @@ export default function SearchForm() {
 
   const { data: tours = [], isLoading } = useQuery({
     queryKey: ["tours"],
-    queryFn: () => getTourClient(),
+    queryFn: () => getToursClient(),
   });
 
   const origins = [

@@ -1,17 +1,24 @@
-import axiosServer from "@/lib/axiosServer";
-import axiosInstance from "@/lib/axiosInstance";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const getTours = async (params = {}) => {
-  const response = await axiosServer.get("/tour", { params });
-  return response.data;
-};
-
-export const getTourClient = async (params = {}) => {
-  const response = await axiosInstance.get("/tour", { params });
-  return response.data;
+  const queryString = new URLSearchParams(params).toString();
+  const res = await fetch(`${BASE_URL}/tour?${queryString}`, {
+    next: { revalidate: 300 },
+  });
+  if (!res.ok) throw new Error("خطا در دریافت تورها");
+  return res.json();
 };
 
 export const getTourById = async (tourId) => {
-  const response = await axiosServer.get(`/tour/${tourId}`);
+  const res = await fetch(`${BASE_URL}/tour/${tourId}`, {
+    next: { revalidate: 300 },
+  });
+  if (!res.ok) throw new Error("تور یافت نشد");
+  return res.json();
+};
+
+export const getToursClient = async (params = {}) => {
+  const { default: axiosInstance } = await import("@/lib/axiosInstance");
+  const response = await axiosInstance.get("/tour", { params });
   return response.data;
 };

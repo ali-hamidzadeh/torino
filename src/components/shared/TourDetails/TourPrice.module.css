@@ -1,0 +1,39 @@
+.priceContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 45px;
+  width: 100%;
+}
+
+.priceNumber {
+  font-family: "Vazirmatn-Medium";
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  color: #10b3e0;
+}
+
+.priceUnit {
+  font-family: "Vazirmatn-Medium";
+  font-weight: 400;
+  font-size: 14px;
+  margin-right: 5px;
+  color: #000000;
+}
+
+.bookButton {
+  margin-right: auto;
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 8px 24px;
+  border-radius: 10px;
+  width: 204px;
+  height: 56px;
+  font-family: "Vazirmatn-Regular";
+  font-weight: 400;
+  font-size: 24px;
+  align-items: center;
+  text-align: center;
+}

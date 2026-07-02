@@ -16,11 +16,12 @@ export const translateVehicle = (vehicle) => {
     airplane: "پرواز",
     train: "قطار",
     ship: "کشتی",
+    suv: "خودروی شاسی‌بلند",
     SUV: "خودروی شاسی‌بلند",
     van: "ون",
     minibus: "مینی‌بوس",
   };
-  return vehicles[vehicle] || vehicle;
+  return vehicles[vehicle?.toLowerCase()] || vehicle;
 };
 
 export const getHotel = (options) => {
@@ -41,4 +42,26 @@ export const getHotel = (options) => {
   const star = Object.entries(numberMap).find(([word]) => hotel.includes(word));
 
   return star ? `هتل ${star[1]} س...` : "هتل";
+};
+
+export const translateCity = (city) => {
+  const cities = {
+    Tehran: "تهران",
+    Isfahan: "اصفهان",
+    Shiraz: "شیراز",
+    Mashhad: "مشهد",
+    Tabriz: "تبریز",
+    Ahvaz: "اهواز",
+    Kerman: "کرمان",
+    Rasht: "رشت",
+    Yazd: "یزد",
+    Qom: "قم",
+    Urmia: "ارومیه",
+    Zahedan: "زاهدان",
+    Hamadan: "همدان",
+    Arak: "اراک",
+    Bandar_Abbas: "بندرعباس",
+    Sanandaj: "سنندج",
+  };
+  return cities[city] || city;
 };

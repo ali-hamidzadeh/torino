@@ -25,7 +25,7 @@ export default function TourCard({ tour }) {
   };
 
   return (
-    <Link href={`/tour/${tour.id}`} className={styles.card}>
+    <Link href={`/tours/${tour.id}`} className={styles.card}>
       <div className={styles.imageBox}>
         <Image src={tour.image} alt={tour.title} width={278.44} height={159} />
       </div>
