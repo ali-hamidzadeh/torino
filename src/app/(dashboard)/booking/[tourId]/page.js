@@ -19,7 +19,13 @@ const schema = yup.object({
     .string()
     .required("کد ملی الزامی است")
     .matches(/^[0-9]{10}$/, "کد ملی باید ۱۰ رقم باشد"),
-  birthDate: yup.string().required("تاریخ تولد الزامی است"),
+  birthDate: yup
+    .string()
+    .required("تاریخ تولد الزامی است")
+    .matches(
+      /^[1-4]\d{3}\/(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])$/,
+      "فرمت تاریخ باید به صورت 1380/05/07 باشد",
+    ),
   gender: yup.string().required("جنسیت الزامی است"),
 });
 
@@ -54,15 +60,17 @@ export default function BookingPage() {
     try {
       await axiosInstance.put(`/basket/${tourId}`);
 
-      await axiosInstance.post("/order", {
+      const orderRes = await axiosInstance.post("/order", {
         fullName: data.fullName,
         nationalCode: data.nationalCode,
         birthDate: data.birthDate,
         gender: data.gender,
       });
 
-      toast.success("رزرو با موفقیت انجام شد!");
-      router.push("/profile/tours");
+      const orderId =  orderRes.data?.orderId;
+      router.push(
+        `/booking/success?orderId=${orderId}&tourTitle=${encodeURIComponent(tour.title)}&price=${tour.price}`,
+      );
     } catch {
       toast.error("خطا در ثبت رزرو. دوباره تلاش کنید");
     } finally {
@@ -118,9 +126,23 @@ export default function BookingPage() {
                   className={styles.inputIcon}
                 />
                 <input
-                  {...register("birthDate")}
+                  {...register("birthDate", {
+                    onChange: (e) => {
+                      let val = e.target.value.replace(/\D/g, "");
+
+                      if (val.length > 4) {
+                        val = val.slice(0, 4) + "/" + val.slice(4);
+                      }
+                      if (val.length > 7) {
+                        val = val.slice(0, 7) + "/" + val.slice(7);
+                      }
+
+                      e.target.value = val.slice(0, 10);
+                    },
+                  })}
                   type="text"
-                  placeholder="تاریخ تولد"
+                  placeholder="1380/05/07"
+                  dir="ltr"
                   className={styles.input}
                 />
               </div>
@@ -152,11 +174,17 @@ export default function BookingPage() {
           <div className={styles.tourHeader}>
             <h3 className={styles.tourTitle}>{tour.title}</h3>
             <p className={styles.tourDuration}>
-              {getTourDays(tour.startDate, tour.endDate).toLocaleString("fa-IR")} روز و{" "}
-              {(getTourDays(tour.startDate, tour.endDate) - 1).toLocaleString("fa-IR")} شب
+              {getTourDays(tour.startDate, tour.endDate).toLocaleString(
+                "fa-IR",
+              )}{" "}
+              روز و{" "}
+              {(getTourDays(tour.startDate, tour.endDate) - 1).toLocaleString(
+                "fa-IR",
+              )}{" "}
+              شب
             </p>
           </div>
-          
+
           <div className={styles.priceRow}>
             <span className={styles.priceLabel}>قیمت نهایی</span>
             <div className={styles.priceContainer}>

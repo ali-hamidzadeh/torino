@@ -62,6 +62,12 @@ export const translateCity = (city) => {
     Arak: "اراک",
     Bandar_Abbas: "بندرعباس",
     Sanandaj: "سنندج",
+    Madrid: "مادرید",
+    Sulaymaniyah: "سلیمانیه",
+    Hewler: "هولر",
+    Mazandaran: "مازندران",
+    Offroad: "تور آفرود",
+    Italy: "ایتالیا",
   };
   return cities[city] || city;
 };

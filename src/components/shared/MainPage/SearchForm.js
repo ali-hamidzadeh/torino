@@ -12,6 +12,7 @@ import styles from "./SearchForm.module.css";
 import location from "@public/location.png";
 import destination from "@public/global-search.png";
 import calendar from "@public/calendar.png";
+import { translateCity } from "@/lib/tourUtils";
 
 export default function SearchForm() {
   const router = useRouter();
@@ -87,7 +88,7 @@ export default function SearchForm() {
           onClick={() => setShowOrigins(!showOrigins)}
         >
           <span className={styles.fieldValue}>
-            {selectedOrigin?.name || ""}
+            {selectedOrigin?.name ? translateCity(selectedOrigin.name) : ""}
           </span>
           {originId && (
             <button
@@ -114,7 +115,7 @@ export default function SearchForm() {
                 }}
               >
                 <MapPin size={14} />
-                <span>{o.name}</span>
+                <span>{translateCity(o.name)}</span>
               </div>
             ))}
           </div>
@@ -135,7 +136,9 @@ export default function SearchForm() {
           onClick={() => setShowDestinations(!showDestinations)}
         >
           <span className={styles.fieldValue}>
-            {selectedDestination?.name || ""}
+            {selectedDestination?.name
+              ? translateCity(selectedDestination.name)
+              : ""}
           </span>
           {destinationId && (
             <button
@@ -162,7 +165,7 @@ export default function SearchForm() {
                 }}
               >
                 <MapPin size={14} />
-                <span>{d.name}</span>
+                <span>{translateCity(d.name)}</span>
               </div>
             ))}
           </div>

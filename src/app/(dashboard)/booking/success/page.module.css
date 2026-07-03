@@ -1,0 +1,134 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3;
+  padding: 24px;
+  direction: rtl;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 48px 40px;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.iconWrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #28a74520;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: "YekanBakhBold";
+  font-size: 22px;
+  font-weight: 700;
+  color: #282828;
+}
+
+.subtitle {
+  font-family: "YekanBakhMedium";
+  font-size: 16px;
+  color: #696969;
+  line-height: 1.8;
+}
+
+.details {
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #00000020;
+  font-family: "Vazirmatn-Regular";
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.detailLabel {
+  font-weight: 400;
+  font-size: 13px;
+  color: #696969;
+}
+
+.detailValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #282828;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.primaryBtn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  font-family: "Vazirmatn-Regular";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  align-items: center;
+}
+
+.secondaryBtn {
+  border: 1px solid #28a745;
+  background-color: #ffffff;
+  color: #28a745;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  font-family: "Vazirmatn-Regular";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  align-items: center;
+
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 32px 20px;
+  }
+}
