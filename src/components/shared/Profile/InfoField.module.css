@@ -1,0 +1,19 @@
+.infoField {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.fieldLabel {
+  font-family: "YekanBakhMedium";
+  font-weight: 300;
+  font-size: 14px;
+  color: #000000;
+}
+
+.fieldValue {
+  font-family: "YekanBakhBold";
+  font-weight: 600;
+  font-size: 14px;
+  color: #282828;
+}

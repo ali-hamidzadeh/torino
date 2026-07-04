@@ -1,0 +1,112 @@
+.section {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px 10px 20px;
+  border: 1px solid #00000033;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.sectionTitle {
+  color: #000000;
+  margin-bottom: 20px;
+  font-family: "YekanBakhMedium";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+}
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.emailItem {
+  flex-grow: 1;
+  justify-content: space-between;
+  max-width: 50%;
+}
+
+.emailText {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.emailInput {
+  width: 255px;
+  height: 45px;
+  border: 1px solid #00000080;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "YekanBakhMedium";
+  font-weight: 400;
+  font-size: 14px;
+  align-items: center;
+  text-align: right;
+}
+
+.label {
+  font-family: "YekanBakhMedium";
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  color: #000000;
+  padding-right: 15px;
+}
+
+.value {
+  color: #282828;
+  font-family: "Vazirmatn-Regular";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+}
+
+.actionButtons {
+  display: flex;
+}
+
+.acceptButton {
+  width: 122px;
+  height: 45px;
+  font-family: "YekanBakhMedium";
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: #ffffff;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  padding: 8px 16px;
+  transition: opacity 0.2s ease;
+  margin-left: 15px;
+}
+.addButton {
+  background: none;
+  border: none;
+  color: #009eca;
+  font-family: "YekanBakhMedium";
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 42px;
+  transition: opacity 0.2s ease;
+}
