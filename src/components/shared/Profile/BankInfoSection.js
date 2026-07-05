@@ -64,8 +64,11 @@ export default function BankInfoSection({ profile, onUpdate }) {
 
   const onSubmit = async (data) => {
     try {
-      const res = await axiosInstance.put("/user/profile", data);
-      onUpdate(res.data);
+      await axiosInstance.put("/user/profile", data);
+
+      const profileRes = await axiosInstance.get("/user/profile");
+      onUpdate(profileRes.data);
+
       toast.success("اطلاعات بانکی با موفقیت ذخیره شد");
       setIsEditing(false);
     } catch {

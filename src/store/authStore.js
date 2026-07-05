@@ -24,6 +24,7 @@ export const useAuthStore = create((set) => ({
     set({
       user: null,
       accessToken: null,
+      refreshToken: null,
       isLoggedIn: false,
     });
   },

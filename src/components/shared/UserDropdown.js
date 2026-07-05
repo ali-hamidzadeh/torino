@@ -5,10 +5,13 @@ import { FaUser } from "react-icons/fa";
 import { CiUser } from "react-icons/ci";
 import { useAuthStore } from "@/store/authStore";
 import { toPersianNumber } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+
 import styles from "./Header.module.css";
 
 export default function UserDropdown({ showDropdown, setShowDropdown }) {
   const { user, logout } = useAuthStore();
+  const router = useRouter();
 
   return (
     <div className={styles.userBox}>
@@ -73,9 +76,10 @@ export default function UserDropdown({ showDropdown, setShowDropdown }) {
           </Link>
           <button
             className={styles.dropdownLogout}
-            onClick={() => {
-              logout();
+            onClick={async () => {
+              await logout();
               setShowDropdown(false);
+              router.push("/")
             }}
           >
             <div className={styles.userIcon3}>

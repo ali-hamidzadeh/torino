@@ -1,0 +1,259 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 60px;
+  direction: rtl;
+  overflow: hidden;
+  height: 100vh;
+  max-width: 1188px;
+  margin: 150px auto;
+}
+
+.contentSide {
+  flex: 1;
+  text-align: right;
+}
+
+.imageSide {
+  flex: 0 0 532px;
+  padding-top: 50px;
+  margin-bottom: 50px;
+  height: 750px;
+}
+
+.mainImage {
+  border-radius: 25px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.title,
+.desc,
+.descDelay {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate .title {
+  animation: fadeUp 0.8s ease forwards;
+}
+.animate .desc {
+  animation: fadeUp 0.8s ease 0.3s forwards;
+}
+.animate .descDelay {
+  animation: fadeUp 0.8s ease 0.5s forwards;
+}
+
+.title {
+  font-family: "Vazirmatn-ExtraBold";
+  font-size: 4.2rem;
+  font-weight: 900;
+  color: #111;
+  line-height: 1.2;
+  margin-bottom: 50px;
+}
+
+.descDelay,
+.desc {
+  font-family: "YekanBakhMedium";
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 2.5;
+  text-align: right;
+  color: #00000098;
+  padding-right: 15px;
+  text-align: justify;
+}
+
+.ceoBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 50px;
+  position: relative;
+}
+
+.ceoImageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #dddddd;
+  border-radius: 12px;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  width: 127px;
+  height: 205px;
+}
+
+.ceoImageWrapper::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  background-color: #f3f4f6;
+  border-radius: 16px;
+  z-index: -1;
+  opacity: 0;
+  transform: translateX(-150px);
+}
+.ceoImage {
+  width: 109px;
+  height: 193px;
+  object-fit: contain;
+}
+.ceoInfo {
+  position: relative;
+  z-index: 1;
+  margin-right: 20px;
+  opacity: 0;
+  transform: translateX(100px);
+  height: 100%;
+}
+
+.ceoHeader strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #000;
+  font-family: "Vazirmatn-Regular";
+}
+.ceoHeader span {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 10px;
+  display: block;
+  font-family: "Vazirmatn-Light";
+  margin-top: 5px;
+}
+
+.ceoQuote {
+  font-family: "Vazirmatn-Bold";
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #000;
+  line-height: 1.5;
+  max-width: 350px;
+}
+
+.animate .ceoImageWrapper {
+  animation: popIn 0.6s ease 0.7s forwards;
+}
+
+.animate .ceoImageWrapper::before {
+  animation: slideGrayBoxFromLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s
+    forwards;
+}
+
+.animate .ceoInfo {
+  animation: slideOutFromBehind 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s
+    forwards;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideOutFromBehind {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideGrayBoxFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.containerText {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1188px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.containerText div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.titleText {
+  font-family: "YekanBakhBold";
+  color: #05350d;
+  font-size: 3.5rem;
+  font-weight: 900;
+  opacity: 0;
+  animation: slideFromRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.description {
+  font-family: "Vazirmatn-Regular";
+  font-size: 1.2rem;
+  line-height: 200%;
+  color: #374151;
+  max-width: 650px;
+  text-align: justify;
+  opacity: 0;
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.3s;
+}
+.bold {
+  font-weight: 700;
+  color: #000;
+}
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

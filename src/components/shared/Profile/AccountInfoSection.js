@@ -35,10 +35,11 @@ export default function AccountInfoSection({ profile, onUpdate }) {
   const saveEmail = async () => {
     setIsSaving(true);
     try {
-      const res = await axiosInstance.put("/user/profile", {
-        email: emailInput,
-      });
-      onUpdate(res.data);
+      await axiosInstance.put("/user/profile", { email: emailInput });
+
+      const profileRes = await axiosInstance.get("/user/profile");
+      onUpdate(profileRes.data);
+
       toast.success("ایمیل با موفقیت ذخیره شد");
       setIsEditing(false);
     } catch {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthStore } from "@/store/authStore";
 
 import styles from "./LoginModal.module.css";
@@ -11,6 +11,13 @@ export default function LoginModal() {
   const { showLoginModal, closeLoginModal } = useAuthStore();
   const [step, setStep] = useState(1);
   const [mobile, setMobile] = useState("");
+
+  useEffect(() => {
+    if (!showLoginModal) {
+      setStep(1);
+      setMobile("");
+    }
+  }, [showLoginModal]);
 
   if (!showLoginModal) return null;
 
