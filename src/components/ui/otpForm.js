@@ -4,6 +4,7 @@ import { OTPInput } from "input-otp";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { toast } from "sonner";
 import { sendOtp, checkOtp } from "@/services/authService";
+import { useSearchParams, useRouter } from "next/navigation";
 
 import styles from "./LoginModal.module.css";
 
@@ -12,6 +13,8 @@ export default function OtpForm({ mobile, onBack }) {
   const [isLoading, setIsLoading] = useState(false);
   const [timer, setTimer] = useState(120);
   const { login } = useAuthStore();
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
   useEffect(() => {
     if (timer === 0) return;
@@ -60,6 +63,11 @@ export default function OtpForm({ mobile, onBack }) {
 
       login(data.user, data.accessToken, data.refreshToken);
       toast.success("خوش آمدید!");
+
+      const redirect = searchParams.get("redirect");
+      if (redirect) {
+        router.push(redirect);
+      }
     } catch (error) {
       toast.error("کد وارد شده اشتباه است");
     } finally {

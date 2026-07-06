@@ -1,16 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useAuthStore } from "@/store/authStore";
+import { useSearchParams, useRouter } from "next/navigation";
 
 import styles from "./LoginModal.module.css";
 import OtpForm from "./otpForm";
 import LoginForm from "./loginForm";
 
-export default function LoginModal() {
-  const { showLoginModal, closeLoginModal } = useAuthStore();
+function LoginModalContent() {
+  const { showLoginModal, closeLoginModal, openLoginModal, accessToken } =
+    useAuthStore();
   const [step, setStep] = useState(1);
   const [mobile, setMobile] = useState("");
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const redirect = searchParams.get("redirect");
+
+  useEffect(() => {
+    if (redirect && !accessToken) {
+      if (typeof openLoginModal === "function") {
+        openLoginModal();
+      } else {
+        useAuthStore.setState({ showLoginModal: true });
+      }
+    }
+  }, [redirect, accessToken, openLoginModal]);
 
   useEffect(() => {
     if (!showLoginModal) {
@@ -18,6 +34,15 @@ export default function LoginModal() {
       setMobile("");
     }
   }, [showLoginModal]);
+
+  const handleLoginSuccess = () => {
+    closeLoginModal();
+    if (redirect) {
+      router.push(redirect);
+    } else {
+      router.refresh();
+    }
+  };
 
   if (!showLoginModal) return null;
 
@@ -38,9 +63,21 @@ export default function LoginModal() {
             }}
           />
         ) : (
-          <OtpForm mobile={mobile} onBack={() => setStep(1)} />
+          <OtpForm
+            mobile={mobile}
+            onBack={() => setStep(1)}
+            onLoginSuccess={handleLoginSuccess}
+          />
         )}
       </div>
     </div>
+  );
+}
+
+export default function LoginModal() {
+  return (
+    <Suspense fallback={null}>
+      <LoginModalContent />
+    </Suspense>
   );
 }
