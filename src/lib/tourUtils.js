@@ -71,3 +71,13 @@ export const translateCity = (city) => {
   };
   return cities[city] || city;
 };
+
+export const translateStatus = (status) => {
+  const statuses = {
+    completed: "به اتمام رسیده",
+    ongoing: "در حال برگزاری",
+    upcoming: "آینده",
+    cancelled: "لغو شده",
+  };
+  return statuses[status?.toLowerCase()] || status;
+};
