@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import styles from "./EmptyState.module.css";
 
 export default function EmptyState({ message, showButton = true }) {

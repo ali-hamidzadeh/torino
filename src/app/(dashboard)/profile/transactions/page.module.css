@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  gap: 20px;
+  max-width: 1188px;
+  margin: 30px auto 120px;
+  padding: 0 24px;
+  direction: rtl;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.tableWrapper {
+  width: 100%;
+  border: 1px solid #00000033;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: start;
+}
+
+.table th {
+  background-color: #f3f3f3;
+  color: #000000;
+  font-family: "YekanBakhMedium";
+  font-weight: 400;
+  font-size: 16px;
+  padding: 15px;
+  font-size: 14px;
+  text-align: start;
+}
+
+.table td {
+  padding: 15px;
+  color: #000000;
+  font-family: "Vazirmatn-Light";
+  font-weight: 300;
+  font-size: 14px;
+}
+
+
+/* استایل سفارشی برای ستون مبلغ در صورت نیاز */
+.amount {
+  font-weight: 500; /* کمی پررنگ‌تر کردن مبلغ */
+}
