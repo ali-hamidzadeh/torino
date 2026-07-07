@@ -12,10 +12,18 @@ export default function AuthProvider({ children }) {
       try {
         const authRes = await fetch("/api/auth");
 
-        if (!authRes.ok) return;
+        if (!authRes.ok) {
+          const refreshRes = await fetch("/api/auth/refresh");
+          
+          if (!refreshRes.ok) {
+            logout();
+            return;
+          }
+        }
 
         const userRes = await axiosInstance.get("/user/profile");
         login(userRes.data, null);
+
       } catch (err) {
         logout();
       }
