@@ -56,7 +56,7 @@ export default function FooterFull() {
               <Link href="/about">درباره ما</Link>
               <Link href="/contact">تماس با ما</Link>
               <Link href="/torino-why">چرا تورینو</Link>
-              <Link href="/insurance">بیمه مسافرتی</Link>
+              <Link href="/tourServices">بیمه مسافرتی</Link>
             </div>
             <div className={styles.linksColumn}>
               <h4>خدمات مشتریان</h4>

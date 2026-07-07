@@ -1,0 +1,86 @@
+.main {
+  width: 100%;
+}
+
+.banner {
+  width: 100%;
+}
+.bannerImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.container {
+  max-width: 1188px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.tourSection {
+  margin: 40px 0;
+}
+
+.tourSection h2 {
+  width: 100%;
+  font-family: "YekanBakhMedium";
+  font-weight: 400;
+  font-size: 32px;
+  color: #000000;
+  padding-bottom: 10px;
+}
+
+.tourGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 29px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.searchSection {
+  font-family: "YekanBakhBold";
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.brand {
+  color: #28a745;
+}
+.noResult {
+  font-family: "YekanBakhBold";
+  font-size: 16px;
+  font-weight: 500;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #555;
+}
+.suggestedNotice {
+  font-family: "Vazirmatn-Medium";
+  font-size: 16px;
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  border: 1px solid #ffeeba;
+  align-items: center;
+  text-align: center;
+}
+.globalNotice {
+  background-color: #e2f0fd;
+  color: #1d4ed8;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #bfdbfe;
+  font-size: 0.95rem;
+}

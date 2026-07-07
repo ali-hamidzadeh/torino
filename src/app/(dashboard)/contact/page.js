@@ -62,7 +62,7 @@ export default function SupportBanner() {
               <div>
                 <strong>تلفن پشتیبانی:</strong>
                 <br />
-                ۰۲۱ - ۴۳۹۰۰۰۰۰
+                ۰۲۱-۸۵۷۴
               </div>
             </div>
             <div className={styles.item}>
