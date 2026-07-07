@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1188px;
+  height: 100vh;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+.banner {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  background-color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.imageSide {
+  flex: 0 0 50%;
+  position: relative;
+}
+
+.imageSide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contentSide {
+  flex: 1;
+  background-color: #ff6600;
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 80px 40px 120px;
+  color: #ffffff;
+  word-wrap: break-word;
+}
+
+.title {
+  font-family: "YekanBakhMedium";
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-family: "Vazirmatn-Medium";
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+  max-width: 450px;
+}
+.contactCard {
+  border: 1px solid #37415186;
+  border-radius: 10px;
+  padding: 32px;
+  margin-top: 24px;
+  background-color: white;
+  direction: rtl;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+.header p {
+  font-family: "Vazirmatn-SemiBold";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 24px;
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item {
+  font-family: "Vazirmatn-Regular";
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000b4;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #374151;
+  line-height: 1.6;
+}

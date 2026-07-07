@@ -1,0 +1,70 @@
+.container {
+  max-width: 1188px;
+  margin: 0 auto;
+  padding: 48px 16px;
+  font-family: Tahoma, sans-serif;
+  direction: rtl;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  margin-bottom: 96px;
+}
+
+.contentWrapper {
+  flex: 1;
+}
+
+.imageWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-family: "YekanBakhMedium";
+  font-size: 2rem;
+  font-weight: 800;
+  color: #282828;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-family: "Vazirmatn-Regular";
+  color: #4b5563;
+  line-height: 2;
+  text-align: justify;
+  font-size: 16px;
+}
+.supportBanner {
+  background-color: #717d8a; /* رنگ خاکستری تیره مطابق تصویر */
+  color: white;
+  padding: 32px;
+  border-radius: 8px;
+  text-align: right;
+  margin: 40px 0;
+}
+
+.supportTitle {
+  font-family: "Vazirmatn-SemiBold";
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.supportText {
+  font-family: "YekanBakhMedium";
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.phoneNumber {
+  color: #ffc107;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
