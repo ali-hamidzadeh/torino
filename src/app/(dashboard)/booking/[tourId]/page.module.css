@@ -209,7 +209,6 @@
   letter-spacing: 0%;
   text-align: center;
   align-items: center;
-
 }
 
 .submitBtn:disabled {
@@ -217,19 +216,67 @@
   cursor: not-allowed;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 400px) {
+  .pageWrapper {
+    padding: 16px;
+    background-color: #ffffff;
+  }
+
   .mainCard {
     flex-direction: column;
+    border: none;
+    gap: 30px;
+    margin-bottom: 30px;
   }
+
+  .formSection {
+    padding: 24px 16px;
+    border: 1px solid #00000033;
+  }
+  .sectionHeader img {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+  }
+  .sectionHeader h2 {
+    font-size: 24px;
+  }
+
   .asideSection {
-    border-right: none;
-    border-top: 1px solid #f0f0f0; 
-    padding-top: 24px;
+    background-color: #ffffff;
+    border: 1px solid #00000033; 
+    border-radius: 10px;
+    padding: 24px 16px;
   }
+
   .form {
     grid-template-columns: 1fr;
   }
+  .form .field:nth-child(1) {
+    order: 1;
+  }
+  .form .field:nth-child(4) {
+    order: 2;
+  }
+  .form .field:nth-child(2) {
+    order: 3;
+  } 
+  .form .field:nth-child(3) {
+    order: 4;
+  }
+
   .form .field:last-child {
     grid-column: auto;
+  }
+  .tourTitle {
+    font-size: 24px;
+  }
+  .tourDuration {
+    color: #282828;
+    font-size: 16px;
+  }
+  .submitBtn{
+    border-radius: 10px;
+    font-size: 24px;
   }
 }

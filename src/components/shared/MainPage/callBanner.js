@@ -14,7 +14,9 @@ export default function CallBanner() {
           </h2>
           <p>به هرجا که میخواهید!</p>
         </div>
-        <Image src={call} alt="call" width={308} height={225} />
+        <div>
+          <Image src={call} alt="call" width={308} height={225} />
+        </div>
       </div>
 
       <div className={styles.leftBox}>

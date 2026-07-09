@@ -53,3 +53,33 @@
 .brand {
   color: #28a745;
 }
+
+@media (max-width: 400px) {
+  .main {
+    width: 100%;
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .container {
+    max-width: 333px;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+  }
+  .tourGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .searchSection{
+    font-size: 16px;
+  }
+  .tourSection h2{
+    font-size: 20px;
+  }
+}

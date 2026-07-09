@@ -5,9 +5,9 @@ const axiosInstance = axios.create({
 });
 
 let accessToken = null;
-let tokenLoaded = false;      
-let fetchTokenPromise = null; 
-let refreshPromise = null;    
+let tokenLoaded = false;
+let fetchTokenPromise = null;
+let refreshPromise = null;
 
 async function fetchAccessToken() {
   if (fetchTokenPromise) return fetchTokenPromise;
@@ -16,12 +16,12 @@ async function fetchAccessToken() {
     .then((res) => (res.ok ? res.json() : null))
     .then((data) => {
       accessToken = data?.accessToken ?? null;
-      tokenLoaded = true;
+      tokenLoaded = false;
       return accessToken;
     })
-    .catch(() => {
-      tokenLoaded = true;
-      return null;
+    .catch((error) => {
+      ((accessToken = null), (tokenLoaded = true));
+      throw error;
     })
     .finally(() => {
       fetchTokenPromise = null;
@@ -31,18 +31,18 @@ async function fetchAccessToken() {
 }
 
 async function getAccessToken() {
-  if (tokenLoaded) return accessToken; 
+  if (tokenLoaded) return accessToken;
   return fetchAccessToken();
 }
 
 async function refreshAccessToken() {
-  if (refreshPromise) return refreshPromise; 
+  if (refreshPromise) return refreshPromise;
 
   refreshPromise = fetch("/api/auth/refresh")
     .then(async (res) => {
       if (!res.ok) throw new Error("refresh failed");
       const data = await res.json();
-      accessToken = data.newAccessToken; 
+      accessToken = data.newAccessToken;
       tokenLoaded = true;
       return accessToken;
     })
@@ -95,10 +95,7 @@ axiosInstance.interceptors.response.use(
 
       try {
         const newToken = await refreshAccessToken();
-        if (!newToken) {
-          await logoutAndRedirect();
-          return Promise.reject(error);
-        }
+        if (!newToken) throw new Error("no token");
         originalRequest.headers.Authorization = `Bearer ${newToken}`;
         return axiosInstance(originalRequest);
       } catch {

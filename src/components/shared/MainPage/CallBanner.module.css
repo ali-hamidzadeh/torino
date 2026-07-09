@@ -92,3 +92,97 @@
   font-weight: 500;
   font-size: 16px;
 }
+
+@media (max-width: 400px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 327px;
+    margin: 40px auto;
+    border: 1px solid #00000040;
+    background-color: #ffffff;
+  }
+  .rightBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #28a745;
+    padding: 16px 16px 0 16px;
+    color: #ffffff;
+    position: relative;
+  }
+
+  .rightBox img {
+    width: 130px; 
+    height: auto;
+    object-fit: contain;
+    align-self: flex-end; 
+  }
+
+  .textBox {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 16px;
+    z-index: 2;
+  }
+
+  .textBox h2 {
+    font-family: "YekanBakhHeavy";
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  .textBox p {
+    font-family: "YekanBakhMedium";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: right;
+    color: #ffffff;
+  }
+
+
+  .leftBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 12px 16px;
+    background-color: #ffffff;
+  }
+
+  .phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .phone span {
+    font-family: "Vazirmatn-Bold";
+    font-weight: 700;
+    font-size: 20px; 
+    line-height: 1;
+  }
+
+  .phone svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .detailsBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 136px;
+    height: 38px;
+    font-size: 14px;
+  }
+}

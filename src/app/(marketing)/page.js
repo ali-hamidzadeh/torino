@@ -77,7 +77,7 @@ export default async function Home({ searchParams }) {
               ))
             ) : (
               <p className={styles.noResult}>
-                توری با مشخصات مورد نظر شما یافت نشد. 😔
+                توری با مشخصات مورد نظر شما یافت نشد.
               </p>
             )}
           </div>

@@ -3,30 +3,16 @@
 import { useEffect, useState, Suspense } from "react";
 import { useAuthStore } from "@/store/authStore";
 import { useSearchParams, useRouter } from "next/navigation";
-
 import styles from "./LoginModal.module.css";
 import OtpForm from "./otpForm";
 import LoginForm from "./loginForm";
 
 function LoginModalContent() {
-  const { showLoginModal, closeLoginModal, openLoginModal, accessToken } =
-    useAuthStore();
+  const { showLoginModal, closeLoginModal } = useAuthStore();
   const [step, setStep] = useState(1);
   const [mobile, setMobile] = useState("");
-
   const searchParams = useSearchParams();
   const router = useRouter();
-  const redirect = searchParams.get("redirect");
-
-  useEffect(() => {
-    if (redirect && !accessToken) {
-      if (typeof openLoginModal === "function") {
-        openLoginModal();
-      } else {
-        useAuthStore.setState({ showLoginModal: true });
-      }
-    }
-  }, [redirect, accessToken, openLoginModal]);
 
   useEffect(() => {
     if (!showLoginModal) {
@@ -37,6 +23,7 @@ function LoginModalContent() {
 
   const handleLoginSuccess = () => {
     closeLoginModal();
+    const redirect = searchParams.get("redirect");
     if (redirect) {
       router.push(redirect);
     } else {
@@ -49,11 +36,11 @@ function LoginModalContent() {
   return (
     <div className={styles.overlay} onClick={closeLoginModal}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        {step === 1 ? (
+        {step === 1 && (
           <button className={styles.closeButton} onClick={closeLoginModal}>
             X
           </button>
-        ) : null}
+        )}
 
         {step === 1 ? (
           <LoginForm

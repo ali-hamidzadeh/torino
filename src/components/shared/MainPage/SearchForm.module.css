@@ -14,7 +14,7 @@
 .field {
   position: relative;
   flex: 1;
-  padding: 15px 18px 15px 10px;
+  padding: 20px 18px 15px 10px;
   border-left: 1px solid #00000020;
   height: 54px;
   display: flex;
@@ -105,7 +105,7 @@
   border: none;
   border-radius: 16px;
   padding: 0 15px;
-  width: 190px;
+  max-width: 190px;
   height: 51px;
   font-size: 15px;
   cursor: pointer;
@@ -127,4 +127,156 @@
   font-family: "Vazirmatn-Regular";
   font-size: 16px;
   font-weight: 400;
+}
+
+@media (max-width: 400px) {
+  .searchForm {
+    width: 100%;
+    max-width: 327px; 
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 12px; 
+    border: none;
+    backdrop-filter: none;
+  }
+
+  .field {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #00000030;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .fieldContent{
+    padding-top: 0;
+  }
+
+  .field:nth-of-type(1) {
+    grid-column: 1 / 2;
+  }
+
+  .field:nth-of-type(2) {
+    grid-column: 2 / 3;
+    border-left: 1px solid #00000030;
+  }
+
+  .field:nth-of-type(3) {
+    grid-column: 1 / 3;
+    border-left: 1px solid #00000030;
+  }
+
+  .label {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px; /* سایز کوچکتر برای موبایل */
+    font-weight: 500;
+    font-family: "YekanBakhMedium";
+    color: #2c2c2c;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .label.active {
+    top: 10px;
+    transform: translateY(0);
+    font-size: 10px;
+    color: #28a745;
+  }
+
+  .label img {
+    width: 16px; /* کوچک کردن آیکون‌ها در موبایل */
+    height: 16px;
+  }
+
+  .fieldContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    /* padding-top: 14px;  */
+    height: 100%;
+  }
+
+  .fieldValue {
+    font-size: 12px;
+    color: #282828;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .clearBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    width: 100%;
+    min-width: 150px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    max-height: 180px;
+    overflow-y: auto;
+  }
+
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .dropdownItem:hover {
+    background-color: #f5f5f5;
+  }
+
+  .searchButton {
+    grid-column: 1 / 3; 
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    height: 48px;
+    max-width: 333px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "YekanBakhMedium";
+    font-weight: 500;
+    margin: 0; 
+  box-sizing: border-box;
+  }
+
+  .customInput {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none; 
+    background: transparent;
+    font-size: 12px;
+    outline: none;
+    font-family: "Vazirmatn-Regular";
+    color: #282828;
+  }
 }

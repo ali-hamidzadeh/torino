@@ -97,3 +97,82 @@
   color: #374151;
   line-height: 1.6;
 }
+
+@media (max-width: 400px) {
+  .container {
+    max-width: 333px;
+    width: 100%;
+    margin: 30px auto 60px;
+    height: auto;
+  }
+
+  .banner {
+    flex-direction: column-reverse;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .imageSide {
+    flex: none;
+    width: 100%;
+    height: 220px;
+  }
+
+  .imageSide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .contentSide {
+    clip-path: none;
+    padding: 24px 20px;
+  }
+
+  .title {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .text {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .contactCard {
+    padding: 20px 16px;
+    margin-top: 0;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .header p {
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 20px;
+  }
+
+  .infoSection {
+    gap: 14px;
+  }
+
+  .item {
+    font-size: 14px;
+    line-height: 2;
+    align-items: flex-start;
+  }
+
+  .item span {
+    font-size: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+}

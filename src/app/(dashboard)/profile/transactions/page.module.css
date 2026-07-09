@@ -47,8 +47,48 @@
   font-size: 14px;
 }
 
-
-/* استایل سفارشی برای ستون مبلغ در صورت نیاز */
 .amount {
-  font-weight: 500; /* کمی پررنگ‌تر کردن مبلغ */
+  font-weight: 500;
+}
+
+@media (max-width: 400px) {
+  .container {
+    max-width: 333px;
+    width: 100%;
+    flex-direction: column;
+    padding: 0;
+    margin: 0px auto 80px;
+    gap: 20px;
+  }
+  .tableWrapper {
+    border-color: #00000040;
+    border-top-color: #dbdbdb;
+  }
+
+  .table thead {
+    background-color: #dbdbdb;
+
+    border: none;
+  }
+  .table th {
+    background-color: #dbdbdb;
+    border: none;
+  }
+  .table th,
+  .table td {
+    white-space: nowrap;
+    padding: 10px;
+  }
+  .mobileHidden {
+    display: none;
+  }
+
+  .orderCell {
+    text-align: right;
+  }
+
+  .orderNumber {
+    direction: rtl;
+    unicode-bidi: isolate;
+  }
 }

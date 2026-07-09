@@ -32,3 +32,35 @@
   background-color: #28a745;
   color: #ffffff;
 }
+@media (max-width: 400px) {
+  .empty {
+    gap: 12px;
+    padding: 32px 16px;
+    border-radius: 12px;
+  }
+
+  .empty svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .message {
+    font-family: "YekanBakhMedium";
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.8;
+    padding: 0 8px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 220px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 10px;
+  }
+}

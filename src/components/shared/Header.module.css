@@ -184,127 +184,6 @@
   display: flex;
 }
 
-@media (min-width: 401px) and (max-width: 900px) {
-  .navbar,
-  .navLinks,
-  .desktopAuth {
-    display: flex !important;
-  }
-
-  .mobileNavbar {
-    display: none !important;
-  }
-
-  .container {
-    max-width: 100%;
-    padding: 0 24px;
-    height: 70px;
-  }
-
-  .navbar {
-    gap: 1.5rem;
-  }
-
-  .navLinks {
-    gap: 1rem;
-  }
-
-  .navLinks a {
-    font-size: 0.9rem;
-  }
-
-  .header_button {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-  }
-}
-
-@media (min-width: 401px) and (max-width: 768px) {
-  .navLinks,
-  .desktopAuth,
-  .navbar img {
-    display: none !important;
-  }
-
-  .mobileNavbar {
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding-top: 12px;
-  }
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 768px;
-    height: 64px;
-    padding: 0 24px;
-  }
-
-  .mobileOverlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #00000066;
-    z-index: 998;
-    backdrop-filter: blur(1px);
-  }
-  .hamburMenu {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-  }
-
-  .hamburMenu svg {
-    width: 24px;
-    height: 24px;
-    stroke: 2.5px #10411b;
-  }
-
-  .mobileLoginButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    border: 1px solid #28a745;
-    border-radius: 8px;
-  }
-
-  .mobileMenu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 390px;
-    background-color: #ffffff;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    padding: 32px 16px;
-    overflow-y: auto;
-    border-radius: 12px;
-    font-family: "YekanBakhMedium";
-    font-size: 18px;
-    font-weight: 400;
-  }
-  .mobileMenu a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 8px;
-    color: #282828;
-  }
-}
-
 @media (max-width: 400px) {
   .navbar img,
   .navLinks,
@@ -399,5 +278,95 @@
   .hamburIcon1 {
     display: flex;
     align-items: center;
+  }
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 157px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #00000015;
+    z-index: 999;
+    overflow: hidden;
+  }
+
+  .dropdownHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background-color: #f4f4f4;
+    color: #282828;
+    padding: 10px;
+    font-family: "Vazirmatn-Medium";
+    font-size: 12px;
+  }
+
+  .userIcon1 {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #696969;
+  }
+
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 12px 10px;
+    font-family: "YekanBakhMedium";
+    font-weight: 500;
+    font-size: 12px;
+    color: #282828;
+    border-bottom: 1px solid #00000010;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+
+  .dropdownItem:hover {
+    background-color: #f9f9f9;
+  }
+
+  .userIcon2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dropdownLogout {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 12px 10px;
+    font-family: "YekanBakhMedium";
+    font-weight: 500;
+    font-size: 12px;
+    color: #d40000;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    transition: background-color 0.2s;
+  }
+
+  .dropdownLogout:hover {
+    background-color: #fff5f5;
+  }
+
+  .userIcon3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d40000;
   }
 }

@@ -37,3 +37,37 @@
   align-items: center;
   text-align: center;
 }
+
+@media (max-width: 400px) {
+  .priceContainer {
+    margin-top: 20px;
+    align-items: center;
+    /* row-reverse حذف شد تا عدد و واحد ترتیب طبیعی بمونن */
+  }
+
+  .priceNumber {
+    font-size: 20px;
+    order: 2; /* عدد بعد از دکمه، سمت چپ */
+  }
+
+  .priceUnit {
+    font-size: 12px;
+    margin-right: 4px;
+    order: 3; /* واحد بعد از عدد */
+  }
+
+  .bookButton {
+    order: 1; /* دکمه اول، سمت راست */
+    margin-right: 0;
+    margin-left: auto; /* دکمه راست، قیمت هل داده می‌شه چپ */
+    width: auto;
+    min-width: 120px;
+    height: 44px;
+    padding: 0 18px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+}

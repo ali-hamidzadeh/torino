@@ -41,7 +41,7 @@
   font-size: 16px;
 }
 .supportBanner {
-  background-color: #717d8a; /* رنگ خاکستری تیره مطابق تصویر */
+  background-color: #717d8a;
   color: white;
   padding: 32px;
   border-radius: 8px;
@@ -67,4 +67,73 @@
   color: #ffc107;
   font-weight: bold;
   font-size: 1.1rem;
+}
+
+@media (max-width: 400px) {
+  .container {
+    max-width: 333px;
+    width: 100%;
+    padding: 24px 0 60px;
+  }
+
+  .section {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .section:nth-of-type(2) {
+    flex-direction: column-reverse;
+  }
+
+  .contentWrapper {
+    width: 100%;
+  }
+
+  .imageWrapper {
+    width: 100%;
+  }
+
+  .imageWrapper img {
+    width: 100%;
+    height: auto;
+  }
+
+  .title {
+    font-size: 22px;
+    line-height: 1.6;
+    margin: 20px 0 16px;
+    text-align: right;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 2;
+    text-align: justify;
+  }
+
+  .supportBanner {
+    margin: 24px 0 40px;
+    padding: 20px 16px;
+    border-radius: 10px;
+  }
+
+  .supportTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .supportText {
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .phoneNumber {
+    font-size: 16px;
+  }
+  .image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 }

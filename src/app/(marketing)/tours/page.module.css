@@ -84,3 +84,28 @@
   border: 1px solid #bfdbfe;
   font-size: 0.95rem;
 }
+@media (max-width: 400px) {
+  .container {
+    max-width: 333px;
+    width: 100%;
+    padding: 0;
+  }
+  .searchSection {
+    font-size: 16px;
+  }
+  .tourGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .tourSection {
+    margin: 25px 0;
+  }
+
+  .tourSection h2 {
+    font-family: "YekanBakhMedium";
+    font-size: 18px;
+    font-weight: 500;
+    text-align: right;
+    padding-bottom: 8px;
+  }
+}

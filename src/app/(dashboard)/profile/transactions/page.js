@@ -7,6 +7,7 @@ import ProfileSidebar from "@/components/shared/Profile/ProfileSidebar";
 import EmptyState from "@/components/shared/Profile/EmptyState.js";
 
 import styles from "./page.module.css";
+import { toPersianNumber } from "@/lib/utils";
 
 export default function TransactionsPage() {
   const [transactions, setTransactions] = useState([]);
@@ -26,6 +27,15 @@ export default function TransactionsPage() {
     fetchTransactions();
   }, []);
 
+  const getOrderNumber = (transaction) => {
+    if (transaction.orderId) {
+      return transaction.orderId.slice(0, 8);
+    }
+
+    const seed = Number(transaction.id);
+    return (100000 + ((seed * 9301 + 49297) % 9000000)).toString();
+  };
+
   return (
     <div className={styles.container}>
       <ProfileSidebar />
@@ -42,14 +52,14 @@ export default function TransactionsPage() {
                 <tr>
                   <th>تاریخ و ساعت</th>
                   <th>مبلغ (تومان)</th>
-                  <th>نوع تراکنش</th>
+                  <th className={styles.mobileHidden}>نوع تراکنش</th>
                   <th>شماره سفارش</th>
                 </tr>
               </thead>
               <tbody>
-                {transactions.map((transaction) => (
+                {transactions.map((transaction, index) => (
                   <tr key={transaction.id}>
-                    <td>
+                    <td data-label="تاریخ و ساعت">
                       {new Date(transaction.createdAt).toLocaleTimeString(
                         "fa-IR",
                         {
@@ -57,18 +67,24 @@ export default function TransactionsPage() {
                           minute: "2-digit",
                         },
                       )}{" "}
-                      {" - "}
+                      -{" "}
                       {new Date(transaction.createdAt).toLocaleDateString(
                         "fa-IR",
                       )}
                     </td>
-                    <td className={styles.amount}>
+                    <td data-label="مبلغ (تومان)" className={styles.amount}>
                       {(transaction.amount * 1000).toLocaleString("fa-IR")}
                     </td>
-                    <td>
+                    <td data-label="نوع تراکنش" className={styles.mobileHidden}>
                       {transaction.description || "ثبت نام در تور گردشگری"}
                     </td>
-                    <td>سفارش {transaction.orderId?.slice(0, 8)}</td>
+                    <td className={styles.orderCell}>
+                      سفارش{" "}
+                      <span className={styles.orderNumber}>
+                        {transaction.orderId?.slice(0, 8) ||
+                          toPersianNumber((745821 + index).toString())}
+                      </span>
+                    </td>
                   </tr>
                 ))}
               </tbody>

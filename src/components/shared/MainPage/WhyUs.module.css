@@ -132,8 +132,8 @@
   transition: color 0.2s;
 }
 .arrowBtn:disabled {
-  color: #10411B80; 
-  cursor: not-allowed; 
+  color: #10411b80;
+  cursor: not-allowed;
   opacity: 0.5;
 }
 .arrowBtn:not(:disabled):hover {
@@ -142,4 +142,152 @@
 .counter {
   font-family: "YekanBakhMedium";
   font-size: 16px;
+}
+
+@media (max-width: 400px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 24px;
+    width: 900%;
+    max-width: 334px;
+    margin: 40px auto;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .textBox {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .slideTitle,
+  .description {
+    display: none;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: right;
+    color: #282828;
+  }
+
+  .brand {
+    font-weight: 800;
+    font-size: 20px;
+    color: #28a745;
+  }
+
+  .iconWrapper {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #28a745 0%, #10411b 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .iconWrapper img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
+
+  .imageBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .collage {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .collage img {
+    position: absolute;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: all 0.5s ease-in-out;
+    width: 200px;
+    height: 240px;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .imageMain {
+    z-index: 4;
+    right: 16px;
+    transform: scale(1) translateX(0);
+    opacity: 1;
+  }
+
+  .imageBehind1 {
+    z-index: 3;
+    right: 60px;
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  .imageBehind2 {
+    z-index: 2;
+    right: 100px;
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  .imageBehind3 {
+    z-index: 1;
+    right: 130px;
+    transform: scale(0.7);
+    opacity: 1;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  .arrowBtn {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: #10411b;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrowBtn:disabled {
+    color: #10411b80;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .arrowBtn:not(:disabled):hover {
+    color: #28a745;
+  }
+
+  .counter {
+    font-size: 16px;
+    color: #282828;
+  }
 }

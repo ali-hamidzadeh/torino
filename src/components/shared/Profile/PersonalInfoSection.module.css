@@ -37,7 +37,7 @@
 }
 
 .editGrid {
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .infoField {
@@ -94,7 +94,7 @@
   color: #e53e3e;
   font-size: 12px;
   margin-top: 6px;
-  display: block; 
+  display: block;
 }
 
 .actionButtons {
@@ -136,4 +136,74 @@
 .cancelButton:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+@media (max-width: 400px) {
+  .section {
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+  }
+
+  .viewGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .viewGrid > * {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    font-size: 14px;
+    direction: rtl;
+    gap: 10px;
+  }
+
+  .viewGrid > *:not(:last-child) {
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .viewGrid > * > :last-child {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+    font-weight: 500;
+    color: #282828;
+    overflow-wrap: anywhere;
+  }
+
+  .viewGrid > * > :first-child {
+    color: #7d7d7d;
+    width: 100px;
+    flex-shrink: 0;
+  }
+
+  .editGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .editGrid .infoField:nth-child(1) {
+    order: 1;
+  }
+  .editGrid .infoField:nth-child(2) {
+    order: 2;
+  }
+  .editGrid .infoField:nth-child(4) {
+    order: 3;
+  }
+  .editGrid .infoField:nth-child(3) {
+    order: 4;
+  }
+
+  .actionButtons {
+    justify-content: space-between;
+  }
+
+  .saveButton,
+  .cancelButton {
+    flex: 1;
+    width: auto;
+  }
 }

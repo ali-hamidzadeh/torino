@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import banner from "@/components/icons/profile/contactbanner.jpg";
 import { MdLocalPhone } from "react-icons/md";
 import { AiOutlineMail } from "react-icons/ai";
+import { MdLocationOn } from "react-icons/md";
 
 export default function SupportBanner() {
   return (
@@ -34,7 +35,9 @@ export default function SupportBanner() {
         <div className={styles.grid}>
           <div className={styles.infoSection}>
             <div className={styles.item}>
-              <span>📍</span>
+              <span>
+                <MdLocationOn />
+              </span>
               <div>
                 <strong>آدرس دفتر حضوری:</strong>
                 <br />
@@ -43,7 +46,9 @@ export default function SupportBanner() {
               </div>
             </div>
             <div className={styles.item}>
-              <span>📍</span>
+              <span>
+                <MdLocationOn />
+              </span>
               <div>
                 <strong>آدرس دفتر پشتیبانی:</strong>
                 <br />

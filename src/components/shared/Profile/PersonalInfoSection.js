@@ -1,3 +1,5 @@
+"use client";
+
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -9,6 +11,7 @@ import Image from "next/image";
 
 import styles from "./PersonalInfoSection.module.css";
 import calendar from "@/components/icons/profile/calendar.png";
+import { toPersianNumber } from "@/lib/utils";
 
 const schema = yup.object({
   fullName: yup.string().required("نام و نام خانوادگی الزامی است"),
@@ -184,8 +187,21 @@ export default function PersonalInfoSection({ profile, onUpdate }) {
                 : profile.fullName || null
             }
           />
-          <InfoField label="کد ملی" value={profile.nationalCode} />
-          <InfoField label="تاریخ تولد" value={profile.birthDate} />
+          <InfoField
+            label="کد ملی"
+            value={
+              profile.nationalCode
+                ? toPersianNumber(profile.nationalCode)
+                : null
+            }
+          />
+
+          <InfoField
+            label="تاریخ تولد"
+            value={
+              profile.birthDate ? toPersianNumber(profile.birthDate) : null
+            }
+          />
           <InfoField
             label="جنسیت"
             value={

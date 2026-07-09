@@ -42,8 +42,8 @@
 }
 
 .emailInput {
-  width: 255px;
-  height: 45px;
+  max-width: 255px;
+  min-height: 45px;
   border: 1px solid #00000080;
   border-radius: 5px;
   padding: 5px;
@@ -70,8 +70,6 @@
   font-family: "Vazirmatn-Regular";
   font-weight: 400;
   font-size: 14px;
-  line-height: 100%;
-  letter-spacing: 0%;
   text-align: right;
 }
 
@@ -109,4 +107,98 @@
   gap: 10px;
   padding: 4px 42px;
   transition: opacity 0.2s ease;
+}
+
+@media (max-width: 400px) {
+  .section {
+    margin: 0;
+  }
+  .sectionTitle {
+    font-size: 16px;
+  }
+
+  .value {
+    color: #282828;
+    font-family: "Vazirmatn-Regular";
+    font-size: 14px;
+    text-align: right;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .infoRow {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .infoItem {
+    width: 100%;
+    padding: 16px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .emailItem {
+    max-width: 100%;
+  }
+
+  .infoItem > .label,
+  .emailText > .label {
+    max-width: 80px;
+    width: 100%;
+    flex-shrink: 0;
+    padding-right: 0;
+  }
+
+  .infoItem:not(.emailItem) > .value {
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .emailText {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    flex: 1;
+    white-space: nowrap;
+  }
+
+  .emailItem .value {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+      direction: ltr;
+  direction: ltr;
+
+  }
+
+  .viewGroup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+
+
+
+  .addButton {
+    padding: 0;
+  }
+
+  .emailInput {
+    width: 100%;
+    max-width: 186px;
+    height: 40px;
+  }
+
+  .acceptButton {
+    width: 93px;
+    height: 40px;
+    margin-left: 0;
+  }
 }

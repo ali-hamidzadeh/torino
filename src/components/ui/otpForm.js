@@ -1,35 +1,30 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { useAuthStore } from "@/store/authStore";
 import { OTPInput } from "input-otp";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { toast } from "sonner";
 import { sendOtp, checkOtp } from "@/services/authService";
-import { useSearchParams, useRouter } from "next/navigation";
 
 import styles from "./LoginModal.module.css";
 
-export default function OtpForm({ mobile, onBack }) {
+export default function OtpForm({ mobile, onBack, onLoginSuccess }) {
   const [otp, setOtp] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [timer, setTimer] = useState(120);
   const { login } = useAuthStore();
-  const searchParams = useSearchParams();
-  const router = useRouter();
 
   useEffect(() => {
     if (timer === 0) return;
-
-    const interval = setInterval(() => {
-      setTimer((prev) => prev - 1);
-    }, 1000);
-
+    const interval = setInterval(() => setTimer((prev) => prev - 1), 1000);
     return () => clearInterval(interval);
   }, [timer]);
 
   const formatTime = (seconds) => {
     const min = Math.floor(seconds / 60);
-    const second = seconds % 60;
-    return `${String(min).padStart(2, "0")}:${String(second).padStart(2, "0")}`;
+    const sec = seconds % 60;
+    return `${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
   };
 
   const handleResend = async () => {
@@ -38,14 +33,14 @@ export default function OtpForm({ mobile, onBack }) {
       setTimer(120);
       setOtp("");
       toast.success("کد جدید ارسال شد");
-    } catch (error) {
+    } catch {
       toast.error("خطا در ارسال مجدد کد");
     }
   };
 
   const handleSubmit = async () => {
     if (otp.length < 6) {
-      toast.error("کد 6 رقمی را کامل وارد کنید");
+      toast.error("کد ۶ رقمی را کامل وارد کنید");
       return;
     }
     setIsLoading(true);
@@ -63,12 +58,8 @@ export default function OtpForm({ mobile, onBack }) {
 
       login(data.user, data.accessToken, data.refreshToken);
       toast.success("خوش آمدید!");
-
-      const redirect = searchParams.get("redirect");
-      if (redirect) {
-        router.push(redirect);
-      }
-    } catch (error) {
+      onLoginSuccess();
+    } catch {
       toast.error("کد وارد شده اشتباه است");
     } finally {
       setIsLoading(false);
@@ -101,7 +92,6 @@ export default function OtpForm({ mobile, onBack }) {
           </div>
         )}
       />
-
       <div className={styles.timerBox}>
         {timer > 0 ? (
           <p className={styles.timer}>{formatTime(timer)} تا ارسال مجدد کد</p>
@@ -111,7 +101,6 @@ export default function OtpForm({ mobile, onBack }) {
           </button>
         )}
       </div>
-
       <button
         onClick={handleSubmit}
         disabled={isLoading}

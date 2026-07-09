@@ -112,3 +112,38 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+@media (max-width: 400px) {
+  .section {
+    width: 100%;
+    padding: 12px 16px;
+    box-sizing: border-box;
+  }
+
+  .sectionHeader {
+    margin-bottom: 15px;
+  }
+
+  .viewGrid,
+  .editGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .infoField {
+    width: 100%;
+  }
+
+  .viewGrid > * {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .viewGrid > *:not(:last-child) {
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .saveButton,
+  .cancelButton {
+    width: 100%;
+  }
+}

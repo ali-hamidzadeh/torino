@@ -14,3 +14,18 @@
   gap: 25px;
 }
 
+@media (max-width: 400px) {
+  .container {
+    max-width: 333px;
+    width: 100%;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    gap: 20px;
+  }
+
+  .main {
+    gap: 16px; 
+  }
+}

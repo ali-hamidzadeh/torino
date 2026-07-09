@@ -32,11 +32,13 @@
   width: 397px;
   height: 265px;
 }
-
 .contentLeft {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  width: 100%;
+}
+
+.titleRow {
+  margin-bottom: 50px;
+  width: 100%;
 }
 
 .title {
@@ -61,19 +63,84 @@
   margin: 0 0 33px;
   color: #282828;
 }
+.desktopDetailInfo {
+  display: block;
+}
 
-@media (max-width: 768px) {
+.mobileDetailInfo {
+  display: none;
+}
+
+@media (max-width: 400px) {
+  .desktopDetailInfo {
+    display: none;
+  }
+
+  .mobileDetailInfo {
+    display: block;
+  }
+
+  .contentLeft {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .pageWrapper {
+    height: auto;
+    min-height: 100vh;
+    padding: 15px 0 40px;
+    background-color: #ffffff;
+  }
+
   .cardContainer {
-    padding: 1rem;
+    max-width: 333px;
+    height: auto;
+    padding: 15px 12px;
+    gap: 12px;
+    border: none;
+    flex-direction: column;
+  }
+
+  .card {
+    min-width: 280px;
+    width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .tours {
+    grid-template-columns: 1fr;
   }
 
   .mainSection {
     flex-direction: column;
+    gap: 12px;
   }
 
   .image {
     width: 100%;
     height: auto;
-    aspect-ratio: 3/2;
+    aspect-ratio: 397 / 265;
+  }
+
+  .title {
+    font-size: 22px;
+    margin-bottom: 6px;
+    text-align: right;
+  }
+  .titleRow {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+
+  .duration {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin: 0 0 12px;
+    color: #282828;
+    text-align: right;
   }
 }

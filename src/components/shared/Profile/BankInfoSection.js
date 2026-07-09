@@ -7,6 +7,7 @@ import axiosInstance from "@/lib/axiosInstance";
 import InfoField from "./InfoField";
 
 import styles from "./BankInfoSection.module.css";
+import { toPersianNumber } from "@/lib/utils";
 
 const schema = yup.object({
   shebaNumber: yup
@@ -151,9 +152,26 @@ export default function BankInfoSection({ profile, onUpdate }) {
         </form>
       ) : (
         <div className={`${styles.infoGrid} ${styles.viewGrid}`}>
-          <InfoField label="شماره شبا" value={profile.shebaNumber} />
-          <InfoField label="شماره کارت" value={profile.cardNumber} />
-          <InfoField label="شماره حساب" value={profile.accountNumber} />
+          <InfoField
+            label="شماره شبا"
+            value={
+              profile.shebaNumber ? toPersianNumber(profile.shebaNumber) : null
+            }
+          />
+          <InfoField
+            label="شماره کارت"
+            value={
+              profile.cardNumber ? toPersianNumber(profile.cardNumber) : null
+            }
+          />
+          <InfoField
+            label="شماره حساب"
+            value={
+              profile.accountNumber
+                ? toPersianNumber(profile.accountNumber)
+                : null
+            }
+          />
         </div>
       )}
     </section>

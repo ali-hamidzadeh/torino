@@ -36,7 +36,7 @@ export default function LoginForm({ onSuccess }) {
       <p className={styles.label}>شماره موبایل خود را وارد کنید</p>
       <input
         {...register("mobile")}
-        type="phone"
+        type="tel"
         placeholder="0912***4253"
         dir="ltr"
         className={styles.input}

@@ -29,18 +29,33 @@ export default async function TourDetail({ params }) {
           </div>
 
           <div className={styles.contentLeft}>
-            <h2 className={styles.title}>{tour.title}</h2>
-            <span className={styles.duration}>
-              {getTourDays(tour.startDate, tour.endDate).toLocaleString("fa-IR")} روز و{" "}
-              {(getTourDays(tour.startDate, tour.endDate) - 1).toLocaleString("fa-IR")} شب
-            </span>
+            <div className={styles.titleRow}>
+              <h2 className={styles.title}>{tour.title}</h2>
+              <span className={styles.duration}>
+                {getTourDays(tour.startDate, tour.endDate).toLocaleString(
+                  "fa-IR",
+                )}{" "}
+                روز و{" "}
+                {(getTourDays(tour.startDate, tour.endDate) - 1).toLocaleString(
+                  "fa-IR",
+                )}{" "}
+                شب
+              </span>
+            </div>
 
             <TourBadges />
+
+            <div className={styles.mobileDetailInfo}>
+              <TourDetailInfo tour={tour} />
+            </div>
+
             <TourPrice price={tour.price} tourId={id} />
           </div>
         </div>
 
-        <TourDetailInfo tour={tour} />
+        <div className={styles.desktopDetailInfo}>
+          <TourDetailInfo tour={tour} />
+        </div>
       </div>
     </div>
   );

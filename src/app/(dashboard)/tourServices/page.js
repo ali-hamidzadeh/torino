@@ -11,17 +11,23 @@ function Page() {
     <div className={styles.container}>
       <section className={styles.section}>
         <div className={styles.contentWrapper}>
-          <Image src={saman} alt="Saman" width={120} height={48} />
+          <Image
+            src={saman}
+            alt="Saman"
+            width={120}
+            height={48}
+            className={styles.image}
+          />
           <h2 className={styles.title}>
             بیمه مسافرتی سامان، همراه همسفران تورینو
           </h2>
           <p className={styles.description}>
-            همسفران تورینو می‌توانند در سفرهای خود از بیمه مسافرتی سامان
-            استفاده کنند. بیمه مسافرتی سامان هزینه‌های فوریت‌های پزشکی و
-            دندان‌پزشکی، هزینه‌های ناشی از مفقودی چمدان و هزینه خسارات ناشی از
-            کنسلی رویدادهای جهانی (هنری، ورزشی، تجاری و...) را جبران می‌کند.
-            همچنین این بیمه به انتخاب شما می‌تواند جبران سرقت و حوادث منزل در
-            طول سفر را هم به عهده‌ بگیرد.
+            همسفران تورینو می‌توانند در سفرهای خود از بیمه مسافرتی سامان استفاده
+            کنند. بیمه مسافرتی سامان هزینه‌های فوریت‌های پزشکی و دندان‌پزشکی،
+            هزینه‌های ناشی از مفقودی چمدان و هزینه خسارات ناشی از کنسلی
+            رویدادهای جهانی (هنری، ورزشی، تجاری و...) را جبران می‌کند. همچنین
+            این بیمه به انتخاب شما می‌تواند جبران سرقت و حوادث منزل در طول سفر
+            را هم به عهده‌ بگیرد.
           </p>
         </div>
         <div className={styles.imageWrapper}>
@@ -43,7 +49,13 @@ function Page() {
 
       <section className={styles.section}>
         <div className={styles.imageWrapper}>
-          <Image src={siut} alt="suitcase" width={617} height={438} />
+          <Image
+            src={siut}
+            alt="suitcase"
+            width={617}
+            height={438}
+            className={styles.image}
+          />
         </div>
         <div className={styles.contentWrapper}>
           <h2 className={styles.title}>بیمه مسافرتی چیست؟</h2>
