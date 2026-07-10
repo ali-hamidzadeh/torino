@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛫 Torino | پلتفرم رزرو آنلاین تور
 
-## Getting Started
+تورینو یک وب‌اپلیکیشن مدرن برای جستجو و رزرو تورهای مسافرتی است. کاربران می‌توانند تورهای داخلی و خارجی را جستجو، بررسی و رزرو کنند و تمام رزروها و تراکنش‌های خود را در پنل کاربری مدیریت نمایند. این پروژه در بوت‌کمپ 'بوتواستارت' با استفاده از تکنولوژی‌های مدرن فرانت‌اند پیاده‌سازی شده است.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🖼 دموی پروژه
+
+> 📸 اسکرین‌شات صفحه اصلی
+
+![Preview](./screenshots/preview.png)
+
+---
+
+## ⚙️ تکنولوژی‌ها و ابزارها
+
+| دسته             | ابزار                                     |
+| ---------------- | ----------------------------------------- |
+| فریمورک          | Next.js 16 (App Router)                   |
+| کتابخانه UI      | React 19                                  |
+| مدیریت State     | Zustand                                   |
+| فچ و کش داده     | TanStack React Query                      |
+| فرم و اعتبارسنجی | React Hook Form + Yup                     |
+| HTTP Client      | Axios (با Interceptor برای Refresh Token) |
+| احراز هویت       | JWT + HTTP-only Cookie                    |
+| تقویم شمسی       | Zaman DatePicker                          |
+| نوتیفیکیشن       | Sonner                                    |
+| آیکون            | Lucide React + React Icons                |
+| استایل           | CSS Modules                               |
+
+---
+
+## ✨ ویژگی‌های اصلی
+
+- 🔐 **احراز هویت کامل** — ورود با شماره موبایل و کد OTP، ذخیره توکن در HTTP-only Cookie
+- 🔄 **Auto Refresh Token** — تجدید خودکار Access Token با Axios Interceptor بدون logout شدن کاربر
+- 🔒 **محافظت از مسیرها** — Middleware برای جلوگیری از دسترسی بدون لاگین به صفحات پروفایل و رزرو
+- 🔍 **جستجوی هوشمند تور** — فیلتر بر اساس مبدا، مقصد و تاریخ با نمایش نتایج مشابه
+- 🏖 **صفحه جزئیات تور** — نمایش اطلاعات کامل تور با رندر ISR برای بهینه‌سازی سئو
+- 🛒 **فرآیند رزرو** — فرم مشخصات مسافر با اعتبارسنجی و نمایش صفحه تأیید رزرو
+- 👤 **پنل کاربری** — مدیریت اطلاعات شخصی، بانکی، تورهای رزروشده و تراکنش‌ها
+- 📱 **ریسپانسیو** — طراحی Mobile-First کاملاً سازگار با موبایل
+- 🌙 **صفحات خطا** — صفحه ۴۰۴ و خطای سرور با طراحی سفارشی
+
+---
+
+## 🗂 ساختار پروژه
+
+```
+torino/
+├── public/                    # فایل‌های استاتیک (تصاویر، آیکون‌ها)
+├── src/
+│   ├── app/
+│   │   ├── (marketing)/       # صفحات عمومی (صفحه اصلی)
+│   │   ├── (dashboard)/       # صفحات پروفایل (نیاز به احراز هویت)
+│   │   │   └── profile/
+│   │   │       ├── page.js            # اطلاعات کاربر
+│   │   │       ├── tours/page.js      # تورهای من
+│   │   │       └── transactions/page.js # تراکنش‌ها
+│   │   ├── tours/             # صفحه لیست تورها
+│   │   ├── booking/           # صفحه رزرو
+│   │   │   ├── [tourId]/page.js
+│   │   │   └── success/page.js
+│   │   ├── api/
+│   │   │   └── auth/          # API Route برای مدیریت Cookie
+│   │   │       ├── route.js
+│   │   │       └── refresh/route.js
+│   │   ├── not-found.js       # صفحه ۴۰۴
+│   │   └── error.js           # صفحه خطای سرور
+│   ├── components/
+│   │   ├── shared/            # کامپوننت‌های مشترک (Header, Footer, ...)
+│   │   |
+│   │   └── ui/                # کامپوننت‌های پایه (LoginModal, OtpForm, ...)
+│   ├── store/
+│   │   └── authStore.js       # مدیریت state احراز هویت با Zustand
+│   ├── services/
+│   │   ├── authService.js     # سرویس‌های API احراز هویت
+│   │   └── tourService.js     # سرویس‌های API تور
+│   |
+│   ├── lib/
+│   │   ├── axiosInstance.js   # Axios با Interceptor
+│   │   ├── tourUtils.js       # توابع کمکی تور
+│   │   └── utils.js           # توابع کمکی عمومی
+│   └── middleware.js          # محافظت از مسیرها
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 روش نصب و اجرا
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### پیش‌نیازها
 
-## Learn More
+- Node.js نسخه ۱۸ یا بالاتر
+- بک‌اند پروژه در حال اجرا
 
-To learn more about Next.js, take a look at the following resources:
+### مراحل نصب
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# ۱. کلون کردن پروژه
+git clone https://github.com/ali-hamidzadeh/torino.git
+cd torino
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# ۲. نصب پکیج‌ها
+npm install
 
-## Deploy on Vercel
+# ۳. ساخت فایل env
+cp .env.example .env.local
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### تنظیم فایل `.env.local`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:6500
+```
+
+```bash
+# ۴. اجرای پروژه
+npm run dev
+```
+
+پروژه روی آدرس [http://localhost:3000](http://localhost:3000) در دسترس خواهد بود.
+
+---
+
+## 🔗 ارتباط با من
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ali-hamidzadeh)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:hamidzadeh.80.ali@gmail.com)
+
+---
+
+ساخته شده با ❤️ در بوت‌کمپ بوتو‌استارت
