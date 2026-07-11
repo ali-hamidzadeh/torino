@@ -21,10 +21,16 @@ function LoginModalContent() {
     }
   }, [showLoginModal]);
 
+  const isSafeRedirect = (url) => {
+    return (
+      typeof url === "string" && url.startsWith("/") && !url.startsWith("//")
+    );
+  };
+
   const handleLoginSuccess = () => {
     closeLoginModal();
     const redirect = searchParams.get("redirect");
-    if (redirect) {
+    if (redirect && isSafeRedirect(redirect)) {
       router.push(redirect);
     } else {
       router.refresh();
