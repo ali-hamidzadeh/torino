@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
 import axiosInstance from "@/lib/axiosInstance";
 import ProfileSidebar from "@/components/shared/Profile/ProfileSidebar.js";
@@ -11,6 +11,7 @@ import BankInfoSection from "@/components/shared/Profile/BankInfoSection.js";
 import styles from "./page.module.css";
 
 export default function ProfilePage() {
+  const [error, setError] = useState(false);
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
@@ -20,16 +21,31 @@ export default function ProfilePage() {
         setProfile(res.data);
       } catch {
         toast.error("خطا در دریافت اطلاعات پروفایل");
+        setError(true);
       }
+
+      if (error)
+        return (
+          <div className={styles.errorContainer}>
+            <p>خطا در دریافت اطلاعات</p>
+            <button onClick={() => window.location.reload()}>تلاش مجدد</button>
+          </div>
+        );
     };
     fetchProfile();
   }, []);
 
-  const handleUpdate = (updatedData) => {
+  const handleUpdate = useCallback((updatedData) => {
     setProfile((prev) => ({ ...prev, ...updatedData }));
-  };
+  }, []);
 
-  if (!profile) return <div>در حال بارگذاری...</div>;
+  if (!profile)
+    return (
+      <div className={styles.loadingContainer}>
+        <div className={styles.spinner} />
+        <p>در حال بارگذاری...</p>
+      </div>
+    );
 
   return (
     <div className={styles.container}>

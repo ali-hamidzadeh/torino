@@ -14,13 +14,6 @@ function LoginModalContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  useEffect(() => {
-    if (!showLoginModal) {
-      setStep(1);
-      setMobile("");
-    }
-  }, [showLoginModal]);
-
   const isSafeRedirect = (url) => {
     return (
       typeof url === "string" && url.startsWith("/") && !url.startsWith("//")
@@ -68,6 +61,9 @@ function LoginModalContent() {
 }
 
 export default function LoginModal() {
+  const showLoginModal = useAuthStore((s) => s.showLoginModal);
+  if (!showLoginModal) return null;
+
   return (
     <Suspense fallback={null}>
       <LoginModalContent />

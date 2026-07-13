@@ -1,18 +1,20 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getToursClient } from "@/services/tourService";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { DatePicker } from "zaman";
 import { MapPin, X } from "lucide-react";
 
 import Image from "next/image";
+import { translateCity } from "@/lib/tourUtils";
+import { getToursClient } from "@/services/tourService";
+
 import styles from "./SearchForm.module.css";
 import location from "@public/location.png";
 import destination from "@public/global-search.png";
 import calendar from "@public/calendar.png";
-import { translateCity } from "@/lib/tourUtils";
+import { Spinner } from "@/lib/utils";
 
 export default function SearchForm() {
   const router = useRouter();
@@ -46,6 +48,8 @@ export default function SearchForm() {
     (destination) => destination.id === destinationId,
   );
 
+  const [isPending, startTransition] = useTransition();
+
   useEffect(() => {
     function handleClickOutside(e) {
       if (originRef.current && !originRef.current.contains(e.target)) {
@@ -67,10 +71,11 @@ export default function SearchForm() {
     if (originId) params.set("originId", originId);
     if (destinationId) params.set("destinationId", destinationId);
     if (date) params.set("startDate", new Date(date).toISOString());
-    router.push(`/tours?${params.toString()}`);
-  };
 
-  if (isLoading) return <div>در حال بارگذاری...</div>;
+    startTransition(() => {
+      router.push(`/tours?${params.toString()}`);
+    });
+  };
 
   return (
     <div className={styles.searchForm}>
@@ -184,8 +189,12 @@ export default function SearchForm() {
           inputClass={styles.customInput}
         />
       </div>
-      <button className={styles.searchButton} onClick={handleSearch}>
-        جستجو
+      <button
+        className={styles.searchButton}
+        onClick={handleSearch}
+        disabled={isPending}
+      >
+        {!isPending ? "جستجو" : <Spinner />}
       </button>
     </div>
   );

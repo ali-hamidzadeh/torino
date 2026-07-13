@@ -2,6 +2,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
+  withCredentials: false,
 });
 
 let accessToken = null;
@@ -16,11 +17,12 @@ async function fetchAccessToken() {
     .then((res) => (res.ok ? res.json() : null))
     .then((data) => {
       accessToken = data?.accessToken ?? null;
-      tokenLoaded = false;
+      tokenLoaded = true;
       return accessToken;
     })
     .catch((error) => {
-      ((accessToken = null), (tokenLoaded = true));
+      accessToken = null;
+      tokenLoaded = false;
       throw error;
     })
     .finally(() => {
@@ -73,16 +75,14 @@ export function clearAccessToken() {
   tokenLoaded = false;
 }
 
-axiosInstance.interceptors.request.use(
-  async (config) => {
-    const token = await getAccessToken();
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => Promise.reject(error),
-);
+axiosInstance.interceptors.request.use(async (config) => {
+  if (refreshPromise) {
+    await refreshPromise.catch(() => {});
+  }
+  const token = await getAccessToken();
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
 
 axiosInstance.interceptors.response.use(
   (response) => response,

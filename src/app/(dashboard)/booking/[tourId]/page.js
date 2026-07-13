@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,8 +10,8 @@ import axiosInstance from "@/lib/axiosInstance";
 import { getTourDays } from "@/lib/tourUtils";
 import styles from "./page.module.css";
 import Image from "next/image";
-import profile from "@/components/icons/booking/profile.png";
-import calendar from "@/components/icons/booking/calendar.png";
+import profileIcon from "@/components/icons/booking/profile.png";
+import calendarIcon from "@/components/icons/booking/calendar.png";
 
 const schema = yup.object({
   fullName: yup.string().required("نام و نام خانوادگی الزامی است"),
@@ -33,30 +33,31 @@ export default function BookingPage() {
   const { tourId } = useParams();
   const router = useRouter();
   const [tour, setTour] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isFetching, setIsFetching] = useState(true);
+  const [fetchError, setFetchError] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm({ resolver: yupResolver(schema) });
 
   useEffect(() => {
     const fetchTour = async () => {
       try {
-        const res = await axiosInstance.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/tour/${tourId}`,
-        );
+        const res = await axiosInstance.get(`/tour/${tourId}`); 
         setTour(res.data);
       } catch {
         toast.error("خطا در دریافت اطلاعات تور");
+        setFetchError(true);
+      } finally {
+        setIsFetching(false);
       }
     };
     fetchTour();
   }, [tourId]);
 
   const onSubmit = async (data) => {
-    setIsLoading(true);
     try {
       await axiosInstance.put(`/basket/${tourId}`);
 
@@ -67,29 +68,41 @@ export default function BookingPage() {
         gender: data.gender,
       });
 
-      const orderId =  orderRes.data?.orderId;
+      const orderId = orderRes.data?.orderId;
       router.push(
         `/booking/success?orderId=${orderId}&tourTitle=${encodeURIComponent(tour.title)}&price=${tour.price}`,
       );
     } catch {
       toast.error("خطا در ثبت رزرو. دوباره تلاش کنید");
-    } finally {
-      setIsLoading(false);
     }
   };
 
-  if (!tour) return <div>در حال بارگذاری...</div>;
+  if (isFetching)
+    return (
+      <div className={styles.loadingContainer}>
+        <div className={styles.spinner} />
+        <p>در حال بارگذاری...</p>
+      </div>
+    );
+
+  if (fetchError)
+    return (
+      <div className={styles.errorContainer}>
+        <p>خطا در دریافت اطلاعات تور</p>
+        <button onClick={() => window.location.reload()}>تلاش مجدد</button>
+      </div>
+    );
 
   return (
     <div className={styles.pageWrapper}>
-      <div className={styles.mainCard}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.mainCard}>
         <div className={styles.formSection}>
           <div className={styles.sectionHeader}>
-            <Image src={profile} alt="profile" width={24} height={24} />
+            <Image src={profileIcon} alt="profile" width={24} height={24} />
             <h2 className={styles.sectionTitle}>مشخصات مسافر</h2>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+          <div className={styles.fields}>
             <div className={styles.field}>
               <input
                 {...register("fullName")}
@@ -119,7 +132,7 @@ export default function BookingPage() {
             <div className={styles.field}>
               <div className={styles.dateInputWrapper}>
                 <Image
-                  src={calendar}
+                  src={calendarIcon}
                   alt="calendar"
                   width={16}
                   height={16}
@@ -129,14 +142,10 @@ export default function BookingPage() {
                   {...register("birthDate", {
                     onChange: (e) => {
                       let val = e.target.value.replace(/\D/g, "");
-
-                      if (val.length > 4) {
+                      if (val.length > 4)
                         val = val.slice(0, 4) + "/" + val.slice(4);
-                      }
-                      if (val.length > 7) {
+                      if (val.length > 7)
                         val = val.slice(0, 7) + "/" + val.slice(7);
-                      }
-
                       e.target.value = val.slice(0, 10);
                     },
                   })}
@@ -167,7 +176,7 @@ export default function BookingPage() {
                 <span className={styles.error}>{errors.gender.message}</span>
               )}
             </div>
-          </form>
+          </div>
         </div>
 
         <div className={styles.asideSection}>
@@ -196,14 +205,14 @@ export default function BookingPage() {
           </div>
 
           <button
-            onClick={handleSubmit(onSubmit)}
-            disabled={isLoading}
+            type="submit"
+            disabled={isSubmitting}
             className={styles.submitBtn}
           >
-            {!isLoading ? "ثبت و خرید نهایی" : "در حال پردازش..."}
+            {!isSubmitting ? "ثبت و خرید نهایی" : "در حال پردازش..."}
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

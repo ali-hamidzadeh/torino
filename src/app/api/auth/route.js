@@ -6,10 +6,10 @@ export async function GET() {
   const accessToken = cookieStore.get("accessToken")?.value;
 
   if (!accessToken) {
-    return NextResponse.json({ user: null }, { status: 401 });
+    return NextResponse.json({ loggedIn: false }, { status: 401 });
   }
 
-  return NextResponse.json({ accessToken });
+  return NextResponse.json({ loggedIn: true });
 }
 
 export async function POST(request) {
@@ -41,5 +41,5 @@ export async function DELETE() {
   cookieStore.delete("accessToken");
   cookieStore.delete("refreshToken");
 
-  return NextResponse.json({success:true})
+  return NextResponse.json({ success: true });
 }
