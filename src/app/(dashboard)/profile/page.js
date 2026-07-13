@@ -23,14 +23,6 @@ export default function ProfilePage() {
         toast.error("خطا در دریافت اطلاعات پروفایل");
         setError(true);
       }
-
-      if (error)
-        return (
-          <div className={styles.errorContainer}>
-            <p>خطا در دریافت اطلاعات</p>
-            <button onClick={() => window.location.reload()}>تلاش مجدد</button>
-          </div>
-        );
     };
     fetchProfile();
   }, []);
@@ -38,6 +30,15 @@ export default function ProfilePage() {
   const handleUpdate = useCallback((updatedData) => {
     setProfile((prev) => ({ ...prev, ...updatedData }));
   }, []);
+
+  if (error) {
+    return (
+      <div className={styles.errorContainer}>
+        <p>خطا در دریافت اطلاعات</p>
+        <button onClick={() => window.location.reload()}>تلاش مجدد</button>
+      </div>
+    );
+  }
 
   if (!profile)
     return (

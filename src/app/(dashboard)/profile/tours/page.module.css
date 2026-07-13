@@ -22,6 +22,25 @@
   flex-direction: column;
   gap: 16px;
 }
+
+.loading {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f0f0f0;
+  border-top-color: #28a745;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  align-items: center;
+  text-align: center;
+}
 @media (max-width: 400px) {
   .container {
     max-width: 333px;

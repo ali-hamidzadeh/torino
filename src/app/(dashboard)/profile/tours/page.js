@@ -32,7 +32,9 @@ export default function MyToursPage() {
       <ProfileSidebar />
       <main className={styles.main}>
         {isLoading ? (
-          <div className={styles.loading}>در حال بارگذاری...</div>
+          <div className={styles.loading}>
+            <div className={styles.spinner} />
+          </div>
         ) : tours.length === 0 ? (
           <EmptyState message="هنوز هیچ توری رزرو نکرده‌اید" />
         ) : (

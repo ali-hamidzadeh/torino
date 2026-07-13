@@ -14,14 +14,12 @@ const AboutSection = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // وقتی وارد دید کاربر شد، کلاس اضافه می‌شود و انیمیشن اجرا می‌گردد
           setIsVisible(true);
         } else {
-          // وقتی از دید کاربر خارج شد، کلاس برداشته می‌شود تا برای دفعه بعد آماده باشد
           setIsVisible(false);
         }
       },
-      { threshold: 0.3 }, // زمانی که ۳۰٪ سکشن دیده شد، تریگر می‌شود
+      { threshold: 0.3 }, 
     );
 
     if (sectionRef.current) {

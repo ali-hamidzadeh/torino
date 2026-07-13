@@ -5,7 +5,14 @@ import BookingSuccessContent from "@/components/shared/Profile/BookingSuccessCon
 export default function BookingSuccessPage() {
   return (
     <div className={styles.container}>
-      <Suspense fallback={<div className={styles.card}>در حال بارگذاری…</div>}>
+      <Suspense
+        fallback={
+          <div className={styles.loadingContainer}>
+            <div className={styles.spinner} />
+            <p>در حال بارگذاری...</p>
+          </div>
+        }
+      >
         <BookingSuccessContent />
       </Suspense>
     </div>
