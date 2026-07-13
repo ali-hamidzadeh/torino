@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { useAuthStore } from "@/store/authStore";
 import { useSearchParams, useRouter } from "next/navigation";
 import styles from "./LoginModal.module.css";

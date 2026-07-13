@@ -1,4 +1,3 @@
-import { Map, BadgeCheck } from "lucide-react";
 import Image from "next/image";
 
 import styles from "./TourBadges.module.css";

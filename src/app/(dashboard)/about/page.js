@@ -19,7 +19,7 @@ const AboutSection = () => {
           setIsVisible(false);
         }
       },
-      { threshold: 0.3 }, 
+      { threshold: 0.3 },
     );
 
     if (sectionRef.current) {

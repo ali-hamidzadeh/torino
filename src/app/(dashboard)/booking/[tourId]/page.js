@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -45,7 +45,7 @@ export default function BookingPage() {
   useEffect(() => {
     const fetchTour = async () => {
       try {
-        const res = await axiosInstance.get(`/tour/${tourId}`); 
+        const res = await axiosInstance.get(`/tour/${tourId}`);
         setTour(res.data);
       } catch {
         toast.error("خطا در دریافت اطلاعات تور");
